@@ -1,0 +1,30 @@
+# Repositórios independentes
+/ms-main/
+/municipalize-app/
+/municipalize-admin-app/
+/municipalize-chat-api/
+/municipalize-mcp/
+
+# Dependências
+node_modules/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Playwright e QA
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+.auth/
+
+# Cobertura e artefatos
+coverage/
+dist/
+
+# Sistema e editores
+.DS_Store
+.idea/
+.vscode/

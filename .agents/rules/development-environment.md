@@ -90,5 +90,8 @@ execução atual. Não mate processos pela porta sem confirmar sua identidade. A
 final, libere portas, conexões, bancos temporários e arquivos transitórios,
 inclusive quando a execução falhar ou for interrompida.
 
-O projeto Playwright centralizado ainda não existe. Não crie comandos, caminhos
-ou dependências para ele até a tarefa específica de implantação do QA E2E.
+O projeto Playwright centralizado fica em `e2e/` na raiz do workspace. Consulte
+`e2e/README.md` para instalação, browsers, variáveis seguras, portas e
+encerramento. O script `npm run docker:ms-main:up` escolhe portas isoladas e um
+projeto Docker próprio para permitir execuções paralelas. Não crie uma segunda
+configuração E2E dentro de um projeto filho sem decisão arquitetural explícita.

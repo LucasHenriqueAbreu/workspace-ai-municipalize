@@ -1,0 +1,108 @@
+[    1105ms] [LOG] getBaseUrlOrThrow:  null @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[    1132ms] [LOG] Angular is running in development mode. @ http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/core-GiRJinf6.js?v=d017ef2d:9110
+[    1135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/api/public/customers:0
+[    1329ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/api/public/customers:0
+[  237750ms] [LOG] getBaseUrlOrThrow:  http://localhost:8080 @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[  256242ms] [LOG] getBaseUrlOrThrow:  http://localhost:8080 @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[  256270ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  256270ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  256278ms] [LOG] Angular is running in development mode. @ http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/core-GiRJinf6.js?v=d017ef2d:9110
+[  256402ms] [ERROR] ERROR AssistantChatApiError: Sessao expirada. Entre novamente para usar o chat.
+    at _AssistantChatRepositoryHttp.createHeaders (http://localhost:5100/chunk-BTQSEFYW.js:247:13)
+    at _AssistantChatRepositoryHttp.<anonymous> (http://localhost:5100/chunk-BTQSEFYW.js:38:172)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61
+    at new ZoneAwarePromise (http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/zone__js.js?v=d017ef2d:1794:18)
+    at __async (http://localhost:5100/chunk-6FADSMUN.js:47:10)
+    at _AssistantChatRepositoryHttp.getAvailability (http://localhost:5100/chunk-BTQSEFYW.js:35:12)
+    at _GetAssistantChatAvailabilityUsecase.<anonymous> (http://localhost:5100/main.js:1259:38)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61 @ http://localhost:5100/@vite/client:524
+[  257003ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://api.github.com/repos/Municipalize/ms-main/releases:0
+[  257003ms] [ERROR] Erro ao verificar notas de versao HttpErrorResponse @ http://localhost:5100/@vite/client:524
+[  257003ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://api.github.com/repos/Municipalize/municipalize-app/releases:0
+[  257275ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  257275ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  259278ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  259279ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  263281ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  263282ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  271285ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  271285ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  287288ms] [ERROR] WebSocket connection to 'ws://localhost:8080/notifications/1' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5100/chunk-QML7L3M2.js:132
+[  287288ms] [ERROR] Erro no WebSocket de notificações @ http://localhost:5100/@vite/client:524
+[  290585ms] [LOG] getBaseUrlOrThrow:  http://localhost:8080 @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[  290614ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ http://localhost:8080/auth/me:0
+[  290619ms] [LOG] Angular is running in development mode. @ http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/core-GiRJinf6.js?v=d017ef2d:9110
+[  314885ms] [LOG] getBaseUrlOrThrow:  http://localhost:8080 @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[  314921ms] [LOG] Angular is running in development mode. @ http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/core-GiRJinf6.js?v=d017ef2d:9110
+[  314996ms] [ERROR] ERROR AssistantChatApiError: Sessao expirada. Entre novamente para usar o chat.
+    at _AssistantChatRepositoryHttp.createHeaders (http://localhost:5100/chunk-BTQSEFYW.js:247:13)
+    at _AssistantChatRepositoryHttp.<anonymous> (http://localhost:5100/chunk-BTQSEFYW.js:38:172)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61
+    at new ZoneAwarePromise (http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/zone__js.js?v=d017ef2d:1794:18)
+    at __async (http://localhost:5100/chunk-6FADSMUN.js:47:10)
+    at _AssistantChatRepositoryHttp.getAvailability (http://localhost:5100/chunk-BTQSEFYW.js:35:12)
+    at _GetAssistantChatAvailabilityUsecase.<anonymous> (http://localhost:5100/main.js:1259:38)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61 @ http://localhost:5100/@vite/client:524
+[  374854ms] [ERROR] Erro ao renovar token automaticamente Error: Refresh token não encontrado
+    at _HttpAuthRepository.<anonymous> (http://localhost:5100/chunk-GB5NAMHV.js:364:15)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61
+    at new ZoneAwarePromise (http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/zone__js.js?v=d017ef2d:1794:18)
+    at __async (http://localhost:5100/chunk-6FADSMUN.js:47:10)
+    at _HttpAuthRepository.refreshToken (http://localhost:5100/chunk-GB5NAMHV.js:361:12)
+    at _AuthService.<anonymous> (http://localhost:5100/chunk-QML7L3M2.js:387:52)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61
+    at new ZoneAwarePromise (http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/zone__js.js?v=d017ef2d:1794:18) @ http://localhost:5100/@vite/client:524
+[  375013ms] [WARNING] 
+  It looks like you're using the disabled attribute with a reactive form directive. If you set disabled to true
+  when you set up this control in your component class, the disabled attribute will actually be set in the DOM for
+  you. We recommend using this approach to avoid 'changed after checked' errors.
+
+  Example:
+  // Specify the `disabled` property at control creation time:
+  form = new FormGroup({
+    first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
+    last: new FormControl('Drew', Validators.required)
+  });
+
+  // Controls can also be enabled/disabled after creation:
+  form.get('first')?.enable();
+  form.get('last')?.disable();
+ @ http://localhost:5100/@vite/client:524
+[  375013ms] [WARNING] 
+  It looks like you're using the disabled attribute with a reactive form directive. If you set disabled to true
+  when you set up this control in your component class, the disabled attribute will actually be set in the DOM for
+  you. We recommend using this approach to avoid 'changed after checked' errors.
+
+  Example:
+  // Specify the `disabled` property at control creation time:
+  form = new FormGroup({
+    first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
+    last: new FormControl('Drew', Validators.required)
+  });
+
+  // Controls can also be enabled/disabled after creation:
+  form.get('first')?.enable();
+  form.get('last')?.disable();
+ @ http://localhost:5100/@vite/client:524
+[  375025ms] [ERROR] ERROR AssistantChatApiError: Sessao expirada. Entre novamente para usar o chat.
+    at _AssistantChatRepositoryHttp.createHeaders (http://localhost:5100/chunk-BTQSEFYW.js:247:13)
+    at _AssistantChatRepositoryHttp.<anonymous> (http://localhost:5100/chunk-BTQSEFYW.js:38:172)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61
+    at new ZoneAwarePromise (http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/zone__js.js?v=d017ef2d:1794:18)
+    at __async (http://localhost:5100/chunk-6FADSMUN.js:47:10)
+    at _AssistantChatRepositoryHttp.getAvailability (http://localhost:5100/chunk-BTQSEFYW.js:35:12)
+    at _GetAssistantChatAvailabilityUsecase.<anonymous> (http://localhost:5100/main.js:1259:38)
+    at Generator.next (<anonymous>)
+    at http://localhost:5100/chunk-6FADSMUN.js:63:61 @ http://localhost:5100/@vite/client:524
+[  375262ms] [LOG] reCAPTCHA carregado @ http://localhost:5100/chunk-5USV3RQC.js:97
+[  467513ms] [LOG] getBaseUrlOrThrow:  http://localhost:8080 @ http://localhost:5100/chunk-GB5NAMHV.js:147
+[  467526ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ http://localhost:8080/auth/me:0
+[  467530ms] [LOG] Angular is running in development mode. @ http://localhost:5100/@fs/Users/lucasigual/workspace/municipalize-app/.angular/cache/22.1.2/municipalize-app/vite/deps/core-GiRJinf6.js?v=d017ef2d:9110
+[  694507ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5100/@vite/client:992

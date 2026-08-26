@@ -1,0 +1,39 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e423]:
+    - generic [ref=f4e424]:
+      - generic [ref=f4e427] [cursor=pointer]:
+        - img "Municipalize logo" [ref=f4e429]
+        - generic [ref=f4e430]:
+          - generic [ref=f4e431]: Municipalize
+          - generic [ref=f4e432]: Portal do Município • Município Sintético
+      - generic [ref=f4e434]:
+        - generic [ref=f4e435]:
+          - generic [ref=f4e436]: Município Sintético
+          - heading "Acesse sua conta" [level=1] [ref=f4e439]
+        - generic [ref=f4e440]:
+          - generic [ref=f4e441]: E-mail
+          - textbox "E-mail" [ref=f4e442]
+        - generic [ref=f4e443]:
+          - generic [ref=f4e444]: Senha
+          - group [ref=f4e445]:
+            - textbox "Senha" [ref=f4e446]
+            - group [ref=f4e447]:
+              - button "Mostrar senha" [ref=f4e448] [cursor=pointer]
+        - group [ref=f4e453]:
+          - checkbox "Não sou um robô Confirme para continuar com segurança." [ref=f4e456] [cursor=pointer]
+          - generic [ref=f4e457]:
+            - generic [ref=f4e458]: Não sou um robô
+            - paragraph [ref=f4e459]: Confirme para continuar com segurança.
+        - button "Entrar" [ref=f4e460]
+        - button "Entrar com Google" [ref=f4e461]
+        - link "Esqueceu a senha?" [ref=f4e463] [cursor=pointer]:
+          - /url: /e2e-tenant/public/forgot-password
+        - generic [ref=f4e464]:
+          - text: Ainda não tem uma conta?
+          - link "Cadastre-se" [ref=f4e465] [cursor=pointer]:
+            - /url: /e2e-tenant/public/signup
+    - img "Município Sintético" [ref=f4e467]
+  - iframe [ref=f4e470]:
+    - generic [ref=f5e6]:
+      - text: protegido por
+      - strong [ref=f5e7]: reCAPTCHA

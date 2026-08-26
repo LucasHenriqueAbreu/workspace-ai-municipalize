@@ -1,0 +1,279 @@
+- generic [ref=e4]:
+  - generic [ref=e6]:
+    - banner [ref=e7]:
+      - generic [ref=e10] [cursor=pointer]:
+        - img "Municipalize logo" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]: Municipalize
+          - generic [ref=e15]: Plataforma nacional para municípios
+      - navigation [ref=e16]:
+        - button "Municípios" [ref=e17]
+        - button "Funcionalidades" [ref=e18]
+      - button "Acessar município" [ref=e20]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Plataforma nacional para municípios e câmaras municipais
+        - heading "A plataforma que organiza o ciclo completo das emendas impositivas no município" [level=1] [ref=e28]
+        - paragraph [ref=e29]: O Municipalize conecta Legislativo, Executivo e população em um fluxo digital de cadastro, revisão, impedimentos técnicos, remanejamentos, ofícios, transparência pública e acompanhamento por etapa.
+        - generic [ref=e30]:
+          - button "Acessar um município" [ref=e31]
+          - button "Conhecer funcionalidades" [ref=e33]
+          - button "Quero meu município no Municipalize" [ref=e35]
+      - figure "Visão geral das funcionalidades disponíveis no Municipalize." [ref=e39]:
+        - img "Tela do Municipalize com a visão geral da plataforma" [ref=e40]
+  - generic [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]: Municípios disponíveis
+        - heading "Escolha o município que você deseja acessar" [level=2] [ref=e53]
+        - paragraph [ref=e54]: A partir daqui você entra na área pública do portal do município. Depois, se tiver perfil autorizado, poderá acessar a área interna do sistema.
+      - generic [ref=e55]: 0 município(s) disponível(is)
+    - generic [ref=e56]:
+      - group [ref=e60]:
+        - generic [ref=e61]: Pesquisar município
+        - group [ref=e62]:
+          - group [ref=e63]
+          - textbox "Pesquisar município" [ref=e68]:
+            - /placeholder: Pesquisar município...
+      - alert [ref=e70]:
+        - generic [ref=e75]:
+          - generic [ref=e76]: Não foi possível carregar os municípios
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: Não foi possível carregar os municípios disponíveis. Tente novamente em instantes.
+            - button "Tentar novamente" [ref=e79]
+  - generic [ref=e82]:
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]: Mapa completo da plataforma
+        - heading "Todas as funcionalidades do Municipalize em um só fluxo" [level=2] [ref=e90]
+        - paragraph [ref=e91]: Do portal público à administração global, o sistema organiza transparência, projetos, emendas, LOA, revisões, Executivo, cadastros, relatórios, comunicação e suporte com rastreabilidade.
+      - generic [ref=e92]: 28 funcionalidades mapeadas
+    - generic [ref=e93]:
+      - button "Ver detalhes de Portal público e dashboard de transparência" [ref=e95]:
+        - img "Tela de Portal público e dashboard de transparência" [ref=e97]
+        - generic [ref=e98]:
+          - generic [ref=e99]: Portal público
+          - heading "Portal público e dashboard de transparência" [level=3] [ref=e104]
+          - paragraph [ref=e105]: Acompanhe emendas por status, tipo, origem, destino, vereador, secretaria, instituição e natureza de despesa.
+        - generic [ref=e106]: Ver detalhes
+      - button "Ver detalhes de Vereadores e perfis públicos" [ref=e112]:
+        - img "Tela de Vereadores e perfis públicos" [ref=e114]
+        - generic [ref=e115]:
+          - generic [ref=e116]: Portal público
+          - heading "Vereadores e perfis públicos" [level=3] [ref=e123]
+          - paragraph [ref=e124]: Liste vereadores, abra perfis públicos e consulte emendas e projetos acompanhados por cada parlamentar.
+        - generic [ref=e125]: Ver detalhes
+      - button "Ver detalhes de Projetos municipais" [ref=e131]:
+        - img "Tela de Projetos municipais" [ref=e133]
+        - generic [ref=e134]:
+          - generic [ref=e135]: Projetos
+          - heading "Projetos municipais" [level=3] [ref=e139]
+          - paragraph [ref=e140]: Crie, edite, envie, revise, aprove, duplique, arquive e acompanhe projetos municipais.
+        - generic [ref=e141]: Ver detalhes
+      - button "Ver detalhes de Orçamento, cronograma e anexos de projeto" [ref=e147]:
+        - img "Tela de Orçamento, cronograma e anexos de projeto" [ref=e149]
+        - generic [ref=e150]:
+          - generic [ref=e151]: Projetos
+          - heading "Orçamento, cronograma e anexos de projeto" [level=3] [ref=e155]
+          - paragraph [ref=e156]: Detalhe custos, etapas, prazos e documentos que sustentam a execução de um projeto.
+        - generic [ref=e157]: Ver detalhes
+      - button "Ver detalhes de Emendas impositivas" [ref=e163]:
+        - img "Tela de Emendas impositivas" [ref=e165]
+        - generic [ref=e166]:
+          - generic [ref=e167]: Emendas
+          - heading "Emendas impositivas" [level=3] [ref=e172]
+          - paragraph [ref=e173]: Cadastre e acompanhe emendas individuais, de bancada e autorizativas com vínculo a projeto e orçamento.
+        - generic [ref=e174]: Ver detalhes
+      - button "Ver detalhes de Protocolo e fluxo legislativo da emenda" [ref=e180]:
+        - img "Tela de Protocolo e fluxo legislativo da emenda" [ref=e182]
+        - generic [ref=e183]:
+          - generic [ref=e184]: Emendas
+          - heading "Protocolo e fluxo legislativo da emenda" [level=3] [ref=e189]
+          - paragraph [ref=e190]: Controle a passagem da emenda por protocolo, revisão contábil, COF, plenário, Executivo e LOA.
+        - generic [ref=e191]: Ver detalhes
+      - button "Ver detalhes de Revisões contábeis e COF" [ref=e197]:
+        - img "Tela de Revisões contábeis e COF" [ref=e199]
+        - generic [ref=e200]:
+          - generic [ref=e201]: Revisões
+          - heading "Revisões contábeis e COF" [level=3] [ref=e206]
+          - paragraph [ref=e207]: Analise emendas protocoladas, registre correções e acompanhe revisões em aberto ou concluídas.
+        - generic [ref=e208]: Ver detalhes
+      - button "Ver detalhes de Workspace de revisão e sugestões por campo" [ref=e214]:
+        - img "Tela de Workspace de revisão e sugestões por campo" [ref=e216]
+        - generic [ref=e217]:
+          - generic [ref=e218]: Revisões
+          - heading "Workspace de revisão e sugestões por campo" [level=3] [ref=e223]
+          - paragraph [ref=e224]: Abra uma revisão guiada, crie sugestões por campo e registre decisões com contexto.
+        - generic [ref=e225]: Ver detalhes
+      - button "Ver detalhes de LOA, QDD e itens orçamentários" [ref=e231]:
+        - img "Tela de LOA, QDD e itens orçamentários" [ref=e233]
+        - generic [ref=e234]:
+          - generic [ref=e235]: LOA
+          - heading "LOA, QDD e itens orçamentários" [level=3] [ref=e240]
+          - paragraph [ref=e241]: Gerencie LOAs, QDD, itens de dotação, saldos e integração das emendas com o orçamento.
+        - generic [ref=e242]: Ver detalhes
+      - button "Ver detalhes de Classificadores orçamentários" [ref=e248]:
+        - img "Tela de Classificadores orçamentários" [ref=e250]
+        - generic [ref=e251]:
+          - generic [ref=e252]: LOA
+          - heading "Classificadores orçamentários" [level=3] [ref=e258]
+          - paragraph [ref=e259]: Mantenha contas, órgãos, unidades orçamentárias, ações, despesas, fontes, funções e subfunções.
+        - generic [ref=e260]: Ver detalhes
+      - button "Ver detalhes de Transações orçamentárias" [ref=e266]:
+        - img "Tela de Transações orçamentárias" [ref=e268]
+        - generic [ref=e269]:
+          - generic [ref=e270]: LOA
+          - heading "Transações orçamentárias" [level=3] [ref=e275]
+          - paragraph [ref=e276]: Registre e consulte movimentações vinculadas a contas, LOA, ações e emendas.
+        - generic [ref=e277]: Ver detalhes
+      - button "Ver detalhes de Remanejamentos rastreáveis" [ref=e283]:
+        - img "Tela de Remanejamentos rastreáveis" [ref=e285]
+        - generic [ref=e286]:
+          - generic [ref=e287]: Emendas
+          - heading "Remanejamentos rastreáveis" [level=3] [ref=e294]
+          - paragraph [ref=e295]: Controle origens, destinos, limites e saldos de emendas remanejadas a partir de uma emenda original.
+        - generic [ref=e296]: Ver detalhes
+      - button "Ver detalhes de Impedimentos técnicos do Executivo" [ref=e302]:
+        - img "Tela de Impedimentos técnicos do Executivo" [ref=e304]
+        - generic [ref=e305]:
+          - generic [ref=e306]: Executivo
+          - heading "Impedimentos técnicos do Executivo" [level=3] [ref=e310]
+          - paragraph [ref=e311]: Registre impedimentos técnicos, motivos, comentários, eventos e status no fluxo da Prefeitura.
+        - generic [ref=e312]: Ver detalhes
+      - button "Ver detalhes de Ofícios e decisões do Executivo" [ref=e318]:
+        - img "Tela de Ofícios e decisões do Executivo" [ref=e320]
+        - generic [ref=e321]:
+          - generic [ref=e322]: Executivo
+          - heading "Ofícios e decisões do Executivo" [level=3] [ref=e327]
+          - paragraph [ref=e328]: Monte ofícios com impedimentos e aprovações, acompanhe envio e decisões vinculadas às emendas.
+        - generic [ref=e329]: Ver detalhes
+      - button "Ver detalhes de Ofícios recebidos e confirmação de recebimento" [ref=e335]:
+        - img "Tela de Ofícios recebidos e confirmação de recebimento" [ref=e337]
+        - generic [ref=e338]:
+          - generic [ref=e339]: Executivo
+          - heading "Ofícios recebidos e confirmação de recebimento" [level=3] [ref=e344]
+          - paragraph [ref=e345]: Acompanhe ofícios recebidos do Executivo e registre confirmação de recebimento.
+        - generic [ref=e346]: Ver detalhes
+      - button "Ver detalhes de Alterações em lote" [ref=e352]:
+        - img "Tela de Alterações em lote" [ref=e354]
+        - generic [ref=e355]:
+          - generic [ref=e356]: Gestão
+          - heading "Alterações em lote" [level=3] [ref=e363]
+          - paragraph [ref=e364]: Execute processos coletivos como aprovação em plenário e envio de emendas ao Executivo.
+        - generic [ref=e365]: Ver detalhes
+      - button "Ver detalhes de Cadastros de vereadores, assessores e usuários" [ref=e371]:
+        - img "Tela de Cadastros de vereadores, assessores e usuários" [ref=e373]
+        - generic [ref=e374]:
+          - generic [ref=e375]: Cadastros
+          - heading "Cadastros de vereadores, assessores e usuários" [level=3] [ref=e382]
+          - paragraph [ref=e383]: Gerencie pessoas, perfis de acesso, mandatos, vínculos e situação cadastral.
+        - generic [ref=e384]: Ver detalhes
+      - button "Ver detalhes de Bancadas e limites de gastos" [ref=e390]:
+        - img "Tela de Bancadas e limites de gastos" [ref=e392]
+        - generic [ref=e393]:
+          - generic [ref=e394]: Cadastros
+          - heading "Bancadas e limites de gastos" [level=3] [ref=e398]
+          - paragraph [ref=e399]: Controle bancadas, participantes e limites orçamentários por função para emendas de bancada.
+        - generic [ref=e400]: Ver detalhes
+      - button "Ver detalhes de Instituições e subinstituições" [ref=e406]:
+        - img "Tela de Instituições e subinstituições" [ref=e408]
+        - generic [ref=e409]:
+          - generic [ref=e410]: Cadastros
+          - heading "Instituições e subinstituições" [level=3] [ref=e415]
+          - paragraph [ref=e416]: Mantenha instituições beneficiadas, responsáveis, usuários e subinstituições da Prefeitura.
+        - generic [ref=e417]: Ver detalhes
+      - button "Ver detalhes de Proponentes e pedidos de acesso" [ref=e423]:
+        - img "Tela de Proponentes e pedidos de acesso" [ref=e425]
+        - generic [ref=e426]:
+          - generic [ref=e427]: Proponentes
+          - heading "Proponentes e pedidos de acesso" [level=3] [ref=e433]
+          - paragraph [ref=e434]: Permita que usuários solicitem habilitação para propor projetos em nome de instituições.
+        - generic [ref=e435]: Ver detalhes
+      - button "Ver detalhes de Relatórios dinâmicos" [ref=e441]:
+        - img "Tela de Relatórios dinâmicos" [ref=e443]
+        - generic [ref=e444]:
+          - generic [ref=e445]: Relatórios
+          - heading "Relatórios dinâmicos" [level=3] [ref=e450]
+          - paragraph [ref=e451]: Crie, salve, compartilhe e filtre relatórios com visões dinâmicas dos dados do dashboard.
+        - generic [ref=e452]: Ver detalhes
+      - button "Ver detalhes de Feed e comunicados internos" [ref=e458]:
+        - img "Tela de Feed e comunicados internos" [ref=e460]
+        - generic [ref=e461]:
+          - generic [ref=e462]: Comunicação
+          - heading "Feed e comunicados internos" [level=3] [ref=e466]
+          - paragraph [ref=e467]: Publique comunicados, sugestões e atualizações com anexos, comentários, curtidas e filtros.
+        - generic [ref=e468]: Ver detalhes
+      - button "Ver detalhes de Suporte e tickets" [ref=e474]:
+        - img "Tela de Suporte e tickets" [ref=e476]
+        - generic [ref=e477]:
+          - generic [ref=e478]: Suporte
+          - heading "Suporte e tickets" [level=3] [ref=e483]
+          - paragraph [ref=e484]: Abra tickets, converse por chat e acompanhe dúvidas, incidentes e solicitações.
+        - generic [ref=e485]: Ver detalhes
+      - button "Ver detalhes de Conta, perfil, notificações e segurança" [ref=e491]:
+        - img "Tela de Conta, perfil, notificações e segurança" [ref=e493]
+        - generic [ref=e494]:
+          - generic [ref=e495]: Configurações
+          - heading "Conta, perfil, notificações e segurança" [level=3] [ref=e500]
+          - paragraph [ref=e501]: Gerencie dados de perfil, conta, senha, notificações e informações do sistema.
+        - generic [ref=e502]: Ver detalhes
+      - button "Ver detalhes de Convites, cadastro e autenticação" [ref=e508]:
+        - img "Tela de Convites, cadastro e autenticação" [ref=e510]
+        - generic [ref=e511]:
+          - generic [ref=e512]: Acesso
+          - heading "Convites, cadastro e autenticação" [level=3] [ref=e518]
+          - paragraph [ref=e519]: Gerencie login, cadastro, convite, verificação de e-mail, recuperação e definição de senha.
+        - generic [ref=e520]: Ver detalhes
+      - button "Ver detalhes de Admin global de clientes" [ref=e526]:
+        - img "Tela de Admin global de clientes" [ref=e528]
+        - generic [ref=e529]:
+          - generic [ref=e530]: Admin global
+          - heading "Admin global de clientes" [level=3] [ref=e536]
+          - paragraph [ref=e537]: Cadastre e edite clientes/tenants, dados gerais, mídia e detalhes institucionais.
+        - generic [ref=e538]: Ver detalhes
+      - button "Ver detalhes de Admin financeiro global" [ref=e544]:
+        - img "Tela de Admin financeiro global" [ref=e546]
+        - generic [ref=e547]:
+          - generic [ref=e548]: Admin global
+          - heading "Admin financeiro global" [level=3] [ref=e553]
+          - paragraph [ref=e554]: Controle contas, categorias e movimentações financeiras administrativas do Municipalize.
+        - generic [ref=e555]: Ver detalhes
+      - button "Ver detalhes de Usuários e conteúdo do admin global" [ref=e561]:
+        - img "Tela de Usuários e conteúdo do admin global" [ref=e563]
+        - generic [ref=e564]:
+          - generic [ref=e565]: Admin global
+          - heading "Usuários e conteúdo do admin global" [level=3] [ref=e570]
+          - paragraph [ref=e571]: Gerencie usuários administradores e áreas de conteúdo, como blog e comunicações institucionais.
+        - generic [ref=e572]: Ver detalhes
+  - contentinfo [ref=e578]:
+    - generic [ref=e579]:
+      - generic [ref=e580]:
+        - region [ref=e581]:
+          - heading "Municipalize" [level=2] [ref=e582]
+          - generic [ref=e584] [cursor=pointer]:
+            - img "Municipalize logo" [ref=e586]
+            - generic [ref=e587]:
+              - generic [ref=e588]: Municipalize
+              - generic [ref=e589]: Plataforma para gestão e transparência das emendas impositivas
+          - paragraph [ref=e590]: Tecnologia para organizar o ciclo das emendas, ampliar a rastreabilidade institucional e aproximar a gestão pública da população.
+        - navigation [ref=e591]:
+          - heading "Acesso rápido" [level=2] [ref=e592]
+          - list [ref=e593]:
+            - listitem [ref=e594]:
+              - button "Acesso administrativo" [ref=e595] [cursor=pointer]
+            - listitem [ref=e596]:
+              - button "Escolher município" [ref=e597] [cursor=pointer]
+            - listitem [ref=e598]:
+              - button "Funcionalidades" [ref=e599] [cursor=pointer]
+        - region [ref=e600]:
+          - generic [ref=e601]:
+            - heading "Fale com a Municipalize" [level=2] [ref=e602]
+            - paragraph [ref=e603]: Atendimento comercial e institucional para municípios e equipes técnicas.
+          - generic [ref=e604]:
+            - button "contato@municipalize.app" [ref=e605] [cursor=pointer]
+            - button "comercial@municipalize.app" [ref=e607] [cursor=pointer]
+      - generic [ref=e609]:
+        - paragraph [ref=e610]: © 2026 Municipalize. Todos os direitos reservados.
+        - generic [ref=e611]:
+          - generic [ref=e612]: Versão
+          - generic [ref=e613]: 1.4.6

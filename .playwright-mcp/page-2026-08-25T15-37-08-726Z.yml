@@ -1,0 +1,295 @@
+- generic [ref=f9e1]:
+  - generic [ref=f9e8]:
+    - banner [ref=f9e9]:
+      - generic [ref=f9e10]:
+        - generic [ref=f9e11]:
+          - button "Voltar para o início" [ref=f9e12] [cursor=pointer]
+          - link "Municipalize logo Municipalize Portal público • Município Sintético" [ref=f9e14] [cursor=pointer]:
+            - /url: /e2e-tenant/public/home
+            - generic [ref=f9e16]:
+              - img "Municipalize logo" [ref=f9e18]
+              - generic [ref=f9e19]:
+                - generic [ref=f9e20]: Municipalize
+                - generic [ref=f9e21]: Portal público • Município Sintético
+        - navigation [ref=f9e23]:
+          - generic [ref=f9e24]:
+            - link "Home" [ref=f9e25] [cursor=pointer]:
+              - /url: /e2e-tenant/public/home
+            - link "Vereadores" [ref=f9e31] [cursor=pointer]:
+              - /url: /e2e-tenant/public/vereadores
+            - link "Instituições" [ref=f9e39] [cursor=pointer]:
+              - /url: /e2e-tenant/public/instituicoes
+        - generic [ref=f9e47]:
+          - link "Entrar no sistema" [ref=f9e48] [cursor=pointer]:
+            - /url: /e2e-tenant/public/login
+          - button "Ativar tema escuro" [active] [ref=f9e448] [cursor=pointer]
+    - main [ref=f9e52]:
+      - generic [ref=f9e57]:
+        - generic [ref=f9e59]:
+          - paragraph [ref=f9e60]: Dashboard de emendas
+          - heading "Monitoramento geral" [level=1] [ref=f9e61]
+          - paragraph [ref=f9e62]: Acompanhe o total de emendas por vereador, bancada, status, secretaria e instituição. Os indicadores gerais desconsideram emendas com impedimento técnico.
+        - generic [ref=f9e63]:
+          - generic [ref=f9e64]:
+            - generic [ref=f9e65]:
+              - paragraph [ref=f9e66]: Vereadores
+              - paragraph [ref=f9e67]: Totais de emendas individuais por vereador responsável.
+            - generic [ref=f9e68]:
+              - generic [ref=f9e69]: Snapshot 20/08/2026
+              - generic "Selecionar fluxo" [ref=f9e73]:
+                - tablist [ref=f9e74]:
+                  - tab "Destino" [ref=f9e75] [cursor=pointer]
+                  - tab "Origem" [selected] [ref=f9e76] [cursor=pointer]
+                - generic:
+                  - tabpanel "Origem"
+          - generic [ref=f9e387]:
+            - generic [ref=f9e389]:
+              - generic [ref=f9e390]:
+                - generic [ref=f9e391]: "Legenda:"
+                - button "Mostrar todos" [ref=f9e392]
+              - generic "Controlar categorias da legenda" [ref=f9e394]:
+                - group [ref=f9e395]:
+                  - button "Ocultar Maria de Teste" [pressed] [ref=f9e396] [cursor=pointer]:
+                    - generic [ref=f9e397]: Maria de Teste
+            - article [ref=f9e399]:
+              - generic [ref=f9e400]:
+                - button "Maria de Teste" [ref=f9e401]
+                - generic [ref=f9e402]: Partido Exemplo · MT
+                - generic "Total de emendas individuais" [ref=f9e403]: R$ 1.250.000,00
+                - generic [ref=f9e404]: 14 emendas individuais
+                - generic [ref=f9e405]: Sem dados para este snapshot.
+        - generic [ref=f9e97]:
+          - generic [ref=f9e98]:
+            - generic [ref=f9e99]:
+              - paragraph [ref=f9e100]: Bancadas
+              - paragraph [ref=f9e101]: Totais de emendas de bancada por bancada responsável.
+            - generic [ref=f9e102]:
+              - generic [ref=f9e103]: Snapshot 20/08/2026
+              - generic "Selecionar fluxo de bancadas" [ref=f9e107]:
+                - tablist [ref=f9e108]:
+                  - tab "Destino" [selected] [ref=f9e109] [cursor=pointer]
+                  - tab "Origem" [ref=f9e110] [cursor=pointer]
+                - generic:
+                  - tabpanel "Destino"
+          - generic [ref=f9e111]:
+            - generic [ref=f9e113]:
+              - generic [ref=f9e114]:
+                - generic [ref=f9e115]: "Legenda:"
+                - button "Mostrar todos" [ref=f9e116]
+              - generic "Controlar categorias da legenda" [ref=f9e118]:
+                - group [ref=f9e119]:
+                  - button "Ocultar Bancada Sintética" [pressed] [ref=f9e120] [cursor=pointer]:
+                    - generic [ref=f9e121]: Bancada Sintética
+            - article [ref=f9e123]:
+              - generic [ref=f9e124]:
+                - generic [ref=f9e125]: Bancada Sintética
+                - generic [ref=f9e126]: Partido Exemplo · MT
+                - generic "Total de emendas de bancada" [ref=f9e127]: R$ 300.000,00
+                - generic [ref=f9e128]: 3 emendas de bancada
+                - generic [ref=f9e129]: Sem dados para este snapshot.
+        - generic [ref=f9e131]:
+          - generic [ref=f9e133]:
+            - paragraph [ref=f9e134]: Instituições beneficiadas
+            - paragraph [ref=f9e135]: Totais por tipo de emenda (individual e bancada).
+          - generic [ref=f9e136]:
+            - generic [ref=f9e138]:
+              - generic [ref=f9e139]:
+                - generic [ref=f9e140]: "Legenda:"
+                - button "Mostrar todos" [ref=f9e141]
+              - generic "Controlar categorias da legenda" [ref=f9e143]:
+                - group [ref=f9e144]:
+                  - button "Ocultar Instituição Sintética" [pressed] [ref=f9e145] [cursor=pointer]:
+                    - generic [ref=f9e146]: Instituição Sintética
+            - article [ref=f9e148]:
+              - generic [ref=f9e149]:
+                - generic [ref=f9e150]: Instituição Sintética
+                - generic [ref=f9e151]: Beneficiária · MT
+                - generic "Total geral (soma de individuais e bancada)" [ref=f9e152]: R$ 1.250.000,00
+              - generic [ref=f9e153]:
+                - generic [ref=f9e154] [cursor=pointer]: Individual
+                - generic [ref=f9e157] [cursor=pointer]: Bancada
+              - list [ref=f9e160]:
+                - listitem [ref=f9e161]:
+                  - generic [ref=f9e162]:
+                    - generic [ref=f9e163]: Emendas Individuais
+                    - 'generic "Emendas Individuais: total em valores" [ref=f9e164]': R$ 1.250.000,00
+                  - generic [ref=f9e165]: 14 emendas
+                - listitem [ref=f9e166]:
+                  - generic [ref=f9e167]:
+                    - generic [ref=f9e168]: Emendas de Bancada
+                    - 'generic "Emendas de Bancada: total em valores" [ref=f9e169]': R$ 0,00
+                  - generic [ref=f9e170]: 0 emendas
+        - list [ref=f9e172]:
+          - listitem [ref=f9e173]:
+            - generic [ref=f9e174]: R$ 500.000,00
+          - listitem [ref=f9e176]:
+            - generic [ref=f9e177]: R$ 0,00
+          - listitem [ref=f9e179]:
+            - generic [ref=f9e180]: R$ 0,00
+          - listitem [ref=f9e182]:
+            - generic [ref=f9e183]: R$ 0,00
+        - generic [ref=f9e185]:
+          - generic "Totais por vereador" [ref=f9e187]:
+            - generic [ref=f9e190]:
+              - img "Distribuição dos valores por categoria." [ref=f9e407]
+              - generic [ref=f9e410]:
+                - button "Ver dados em tabela" [ref=f9e411] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e414]:
+                    - rowgroup [ref=f9e415]:
+                      - row [ref=f9e416]:
+                        - columnheader "Categoria" [ref=f9e417]
+                        - columnheader "Quantidade" [ref=f9e418]
+                        - columnheader "Valor" [ref=f9e419]
+                    - rowgroup [ref=f9e420]:
+                      - row [ref=f9e421]:
+                        - cell "Maria de Teste" [ref=f9e422]
+                        - cell "14" [ref=f9e423]
+                        - cell "R$ 1.250.000,00" [ref=f9e424]
+          - generic "Totais por status" [ref=f9e210]:
+            - generic [ref=f9e213]:
+              - img "Distribuição dos valores por categoria." [ref=f9e214]
+              - generic [ref=f9e217]:
+                - button "Ver dados em tabela" [ref=f9e218] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e221]:
+                    - rowgroup [ref=f9e222]:
+                      - row [ref=f9e223]:
+                        - columnheader "Categoria" [ref=f9e224]
+                        - columnheader "Quantidade" [ref=f9e225]
+                        - columnheader "Valor" [ref=f9e226]
+                    - rowgroup [ref=f9e227]:
+                      - row [ref=f9e228]:
+                        - cell "MT" [ref=f9e229]
+                        - cell "14" [ref=f9e230]
+                        - cell "R$ 500.000,00" [ref=f9e231]
+        - generic [ref=f9e232]:
+          - generic [ref=f9e233]:
+            - generic [ref=f9e234]:
+              - paragraph [ref=f9e235]: Detalhamento por vereador
+              - paragraph [ref=f9e236]: Tabela detalhada do agrupamento selecionado.
+            - generic "Selecionar agrupamento para tabela" [ref=f9e239]:
+              - tablist [ref=f9e240]:
+                - tab "Por responsável" [selected] [ref=f9e241] [cursor=pointer]
+                - tab "Por criador" [ref=f9e242] [cursor=pointer]
+                - tab "Por vereador" [ref=f9e243] [cursor=pointer]
+                - tab "Por bancada" [ref=f9e244] [cursor=pointer]
+              - generic:
+                - tabpanel "Destino"
+          - generic "Tabela detalhada do agrupamento selecionado" [ref=f9e245]:
+            - generic "Tabela detalhada com rolagem interna" [ref=f9e425]:
+              - table [ref=f9e426]:
+                - caption [ref=f9e427]: Dados do agrupamento selecionado
+                - rowgroup [ref=f9e428]:
+                  - row [ref=f9e429]:
+                    - columnheader "Categoria" [ref=f9e430]
+                    - columnheader "Quantidade" [ref=f9e431]
+                    - columnheader "Valor individual" [ref=f9e432]
+                    - columnheader "Valor de bancada" [ref=f9e433]
+                    - columnheader "Detalhes" [ref=f9e434]
+                - rowgroup [ref=f9e435]:
+                  - row [ref=f9e436]:
+                    - cell "Maria de Teste" [ref=f9e437]
+                    - cell "14" [ref=f9e438]
+                    - cell "R$ 1.250.000,00" [ref=f9e439]
+                    - cell "R$ 0,00" [ref=f9e440]
+                    - cell "Detalhamento disponível nos cards." [ref=f9e441]
+        - generic [ref=f9e263]:
+          - generic "Totais por secretaria" [ref=f9e264]:
+            - generic [ref=f9e267]:
+              - img "Distribuição dos valores por categoria." [ref=f9e268]
+              - generic [ref=f9e271]:
+                - button "Ver dados em tabela" [ref=f9e272] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e275]:
+                    - rowgroup [ref=f9e276]:
+                      - row [ref=f9e277]:
+                        - columnheader "Categoria" [ref=f9e278]
+                        - columnheader "Quantidade" [ref=f9e279]
+                        - columnheader "Valor" [ref=f9e280]
+                    - rowgroup [ref=f9e281]:
+                      - row [ref=f9e282]:
+                        - cell "Maria de Teste" [ref=f9e283]
+                        - cell "14" [ref=f9e284]
+                        - cell "R$ 1.250.000,00" [ref=f9e285]
+          - generic "Totais por instituição" [ref=f9e286]:
+            - generic [ref=f9e289]:
+              - img "Distribuição dos valores por categoria." [ref=f9e290]
+              - generic [ref=f9e293]:
+                - button "Ver dados em tabela" [ref=f9e294] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e297]:
+                    - rowgroup [ref=f9e298]:
+                      - row [ref=f9e299]:
+                        - columnheader "Categoria" [ref=f9e300]
+                        - columnheader "Quantidade" [ref=f9e301]
+                        - columnheader "Valor" [ref=f9e302]
+                    - rowgroup [ref=f9e303]:
+                      - row [ref=f9e304]:
+                        - cell "Instituição Sintética" [ref=f9e305]
+                        - cell "14" [ref=f9e306]
+                        - cell "R$ 1.250.000,00" [ref=f9e307]
+          - generic "Totais por função" [ref=f9e308]:
+            - generic [ref=f9e311]:
+              - img "Distribuição dos valores por categoria." [ref=f9e312]
+              - generic [ref=f9e315]:
+                - button "Ver dados em tabela" [ref=f9e316] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e319]:
+                    - rowgroup [ref=f9e320]:
+                      - row [ref=f9e321]:
+                        - columnheader "Categoria" [ref=f9e322]
+                        - columnheader "Quantidade" [ref=f9e323]
+                        - columnheader "Valor" [ref=f9e324]
+                    - rowgroup [ref=f9e325]:
+                      - row [ref=f9e326]:
+                        - cell "Maria de Teste" [ref=f9e327]
+                        - cell "14" [ref=f9e328]
+                        - cell "R$ 1.250.000,00" [ref=f9e329]
+          - generic "Totais por natureza da despesa" [ref=f9e330]:
+            - generic [ref=f9e333]:
+              - img "Distribuição dos valores por categoria." [ref=f9e334]
+              - generic [ref=f9e337]:
+                - button "Ver dados em tabela" [ref=f9e338] [cursor=pointer]
+                - region "Ver dados em tabela":
+                  - table "Dados equivalentes do gráfico" [ref=f9e341]:
+                    - rowgroup [ref=f9e342]:
+                      - row [ref=f9e343]:
+                        - columnheader "Categoria" [ref=f9e344]
+                        - columnheader "Quantidade" [ref=f9e345]
+                        - columnheader "Valor" [ref=f9e346]
+                    - rowgroup [ref=f9e347]:
+                      - row [ref=f9e348]:
+                        - cell "Maria de Teste" [ref=f9e349]
+                        - cell "14" [ref=f9e350]
+                        - cell "R$ 1.250.000,00" [ref=f9e351]
+        - generic [ref=f9e355]:
+          - generic [ref=f9e356]:
+            - generic [ref=f9e358]:
+              - generic [ref=f9e359]: Quantidade
+              - generic [ref=f9e360]: "1"
+              - generic [ref=f9e361]: Snapshot 20/08/2026
+            - generic [ref=f9e363]:
+              - generic [ref=f9e364]: Valor total
+              - generic [ref=f9e365]: R$ 75.000,00
+          - table "Impedimentos técnicos" [ref=f9e367]:
+            - rowgroup [ref=f9e368]:
+              - row [ref=f9e369]:
+                - columnheader "Emenda" [ref=f9e370]
+                - columnheader "Responsável" [ref=f9e371]
+                - columnheader "Instituição" [ref=f9e372]
+                - columnheader "Valor" [ref=f9e373]
+                - columnheader "Motivo" [ref=f9e374]
+            - rowgroup [ref=f9e375]:
+              - row [ref=f9e376]:
+                - cell "E2E-9001" [ref=f9e377]
+                - cell "Maria de Teste" [ref=f9e378]
+                - cell "Instituição Sintética" [ref=f9e379]
+                - cell "R$ 75.000,00" [ref=f9e380]
+                - cell [ref=f9e381]:
+                  - text: Motivo sintético do impedimento técnico.
+                  - button "Ver detalhe" [ref=f9e382]
+    - contentinfo [ref=f9e383]:
+      - generic [ref=f9e384]: Município Sintético
+      - generic [ref=f9e385]: Municipalize v1.4.6
+  - tooltip [ref=f9e444]

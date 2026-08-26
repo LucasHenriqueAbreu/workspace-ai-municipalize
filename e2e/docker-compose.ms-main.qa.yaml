@@ -1,0 +1,80 @@
+services:
+  keycloak:
+    environment:
+      KC_HOSTNAME: keycloak
+      KC_HOSTNAME_PORT: "8080"
+      KC_HOSTNAME_STRICT: "false"
+
+  admin-mongo:
+    image: mongo:7.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: municipalize_admin
+      MONGO_INITDB_ROOT_PASSWORD: municipalize_admin_password
+    ports:
+      - "${E2E_ADMIN_MONGO_PORT:-27017}:27017"
+    volumes:
+      - municipalize-qa-admin-mongo:/data/db
+
+  admin-api:
+    build:
+      context: ..
+      dockerfile: e2e/Dockerfile.municipalize-admin
+    environment:
+      APPLICATION_PORT: 3000
+      APPLICATION_ENV: development
+      FILE_STORAGE_ROOT_DIRECTORY: /tmp/municipalize-admin-storage
+      MONGO_DATABASE_NAME: municipalize_admin_development
+      MONGO_ROOT_USERNAME: municipalize_admin
+      MONGO_ROOT_PASSWORD: municipalize_admin_password
+      MONGO_PORT: 27017
+      MONGODB_URI: mongodb://municipalize_admin:municipalize_admin_password@admin-mongo:27017/municipalize_admin_development?authSource=admin
+      ACCESS_TOKEN_SECRET: e2e-only-access-token-secret-change-me
+      ACCESS_TOKEN_EXPIRATION_IN_MINUTES: 60
+      INTERNAL_API_KEY: e2e-only-internal-api-key
+      GENERAL_ADMINISTRATOR_FULL_NAME: QA General Administrator
+      GENERAL_ADMINISTRATOR_EMAIL_ADDRESS: ${E2E_REAL_USER_EMAIL:-qa-admin@example.invalid}
+      GENERAL_ADMINISTRATOR_PASSWORD: ${E2E_REAL_USER_PASSWORD:-change-me-in-local-env}
+      CHAT_SYSTEM_PROMPT_FILE: /app/src/modules/chat/prompts/gracy-system-prompt.pt-BR.md
+      LITELLM_BASE_URL: http://litellm:4000
+      LITELLM_API_KEY: e2e-not-configured
+      LITELLM_ADMIN_BASE_URL: http://litellm:4000
+      LITELLM_MASTER_KEY: e2e-not-configured
+      MCP_KEYCLOAK_ISSUER_URL: http://keycloak:8080/realms/quarkus-realm
+      MCP_KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/quarkus-realm/protocol/openid-connect/certs
+      MCP_KEYCLOAK_AUDIENCE: backend-service
+      MCP_KEYCLOAK_CLIENT_ID: municipalize-web
+    ports:
+      - "${E2E_ADMIN_API_PORT:-3200}:3000"
+    depends_on:
+      - admin-mongo
+
+  api:
+    build:
+      context: ../ms-main
+      dockerfile: Dockerfile.qa
+    environment:
+      QUARKUS_PROFILE: dev
+      QUARKUS_HTTP_HOST: 0.0.0.0
+      QUARKUS_HTTP_PORT: 8080
+      QUARKUS_DATASOURCE_DEFAULT_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main;encrypt=true;trustServerCertificate=true
+      QUARKUS_DATASOURCE_CLIENTE1_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main-cliente1;encrypt=true;trustServerCertificate=true
+      QUARKUS_DATASOURCE_CLIENTE2_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main-cliente2;encrypt=true;trustServerCertificate=true
+      QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak:8080/realms/quarkus-realm
+      QUARKUS_OIDC_AUTHENTICATION_USER_INFO_REQUIRED: "false"
+      KEYCLOAK_BASE_URL: http://keycloak:8080
+      KEYCLOAK_TOKEN_URL: http://keycloak:8080/realms/master/protocol/openid-connect/token
+      APP_DOMAIN: http://host.docker.internal:${E2E_FRONTEND_PORT:-5100}
+      FRONTEND_ALLOWED_ORIGINS: http://localhost:${E2E_FRONTEND_PORT:-5100}
+      QUARKUS_HTTP_CORS_ORIGINS: http://localhost:${E2E_FRONTEND_PORT:-5100}
+    ports:
+      - "${E2E_BACKEND_PORT:-3080}:8080"
+    depends_on:
+      mssql:
+        condition: service_started
+      keycloak:
+        condition: service_started
+    networks:
+      - ms-project-main
+
+volumes:
+  municipalize-qa-admin-mongo:

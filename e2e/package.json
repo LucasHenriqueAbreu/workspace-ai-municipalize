@@ -1,0 +1,27 @@
+{
+  "name": "municipalize-e2e",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "qa:bootstrap": "node scripts/bootstrap-qa-environment.mjs",
+    "qa:up": "node scripts/docker-ms-main.mjs up",
+    "install:browsers": "playwright install chromium",
+    "docker:ms-main:up": "node scripts/docker-ms-main.mjs up",
+    "docker:ms-main:down": "node scripts/docker-ms-main.mjs down"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.0.0",
+    "dotenv": "^16.6.1",
+    "mongodb": "^7.6.0",
+    "mssql": "^12.7.0",
+    "typescript": "^5.9.0"
+  }
+}

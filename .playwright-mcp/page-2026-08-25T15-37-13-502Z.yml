@@ -1,0 +1,60 @@
+- generic [ref=f9e8]:
+  - banner [ref=f9e9]:
+    - generic [ref=f9e10]:
+      - generic [ref=f9e11]:
+        - button "Voltar para o início" [ref=f9e12] [cursor=pointer]
+        - link "Municipalize logo Municipalize Portal público • Município Sintético" [ref=f9e14] [cursor=pointer]:
+          - /url: /e2e-tenant/public/home
+          - generic [ref=f9e16]:
+            - img "Municipalize logo" [ref=f9e18]
+            - generic [ref=f9e19]:
+              - generic [ref=f9e20]: Municipalize
+              - generic [ref=f9e21]: Portal público • Município Sintético
+      - navigation [ref=f9e23]:
+        - generic [ref=f9e24]:
+          - link "Home" [ref=f9e25] [cursor=pointer]:
+            - /url: /e2e-tenant/public/home
+          - link "Vereadores" [active] [ref=f9e31] [cursor=pointer]:
+            - /url: /e2e-tenant/public/vereadores
+          - link "Instituições" [ref=f9e39] [cursor=pointer]:
+            - /url: /e2e-tenant/public/instituicoes
+      - generic [ref=f9e47]:
+        - link "Entrar no sistema" [ref=f9e48] [cursor=pointer]:
+          - /url: /e2e-tenant/public/login
+        - button "Ativar tema escuro" [ref=f9e448] [cursor=pointer]
+  - main [ref=f9e52]:
+    - generic [ref=f9e450]:
+      - generic [ref=f9e451]:
+        - generic [ref=f9e452]:
+          - generic [ref=f9e453]: Portal público
+          - heading "Vereadores" [level=1] [ref=f9e454]
+          - paragraph [ref=f9e455]: Consulte os vereadores com atuação registrada e abra o perfil público detalhado.
+        - generic "Selecionar fluxo" [ref=f9e457]:
+          - tablist [ref=f9e458]:
+            - tab "Destino" [selected] [ref=f9e459] [cursor=pointer]
+            - tab "Origem" [ref=f9e460] [cursor=pointer]
+          - generic:
+            - tabpanel "Destino"
+      - generic [ref=f9e462]:
+        - generic [ref=f9e463]:
+          - generic [ref=f9e464]: MT
+          - button "Abrir perfil público de Maria de Teste" [ref=f9e467]: Maria de Teste
+          - button "Abrir perfil público de Maria de Teste" [ref=f9e468]: ↗
+        - generic [ref=f9e469]:
+          - paragraph [ref=f9e470]: 14 emendas individuais com acompanhamento público disponível.
+          - generic [ref=f9e471]:
+            - generic [ref=f9e472]: Mandato atual
+            - generic [ref=f9e473]: Presidente da COF
+          - generic [ref=f9e474]:
+            - generic [ref=f9e475]:
+              - generic [ref=f9e476]: Emendas
+              - generic [ref=f9e477]: "14"
+            - generic [ref=f9e478]:
+              - generic [ref=f9e479]: Total no fluxo
+              - generic [ref=f9e480]: R$ 1.250.000,00
+          - generic [ref=f9e485]:
+            - generic [ref=f9e486]: Sem detalhamento
+            - generic [ref=f9e487]: Sem dados para este snapshot.
+  - contentinfo [ref=f9e383]:
+    - generic [ref=f9e384]: Município Sintético
+    - generic [ref=f9e385]: Municipalize v1.4.6

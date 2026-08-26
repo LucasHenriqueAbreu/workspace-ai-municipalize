@@ -1,8 +1,13 @@
-# Configuração global dos agentes
+# Configuração operacional dos agentes
 
-Este diretório reúne regras e skills pessoais usadas no workspace Municipalize.
-Ele pertence ao repositório de orquestração da raiz e não substitui as
-instruções específicas de cada subprojeto.
+Este diretório reúne rules, skills, templates e automações usadas por agentes
+no workspace Municipalize. Ele pertence ao repositório de orquestração da raiz
+e não substitui as instruções específicas de cada subprojeto.
+
+Para entender o workspace e o processo de desenvolvimento, comece pelo
+[`README.md`](../README.md) e pelo [índice da documentação](../docs/README.md).
+Os documentos em `docs/` são a referência para pessoas; este diretório contém
+as instruções operacionais que agentes devem aplicar.
 
 ## Ordem de precedência
 
@@ -69,20 +74,24 @@ criar-prd
 O review é a última etapa. Uma funcionalidade somente está concluída depois do
 QA aprovado e do review final aprovado.
 
-## Documentação do processo
+## Documentação para pessoas
 
-- [`README.md`](../README.md): visão geral do workspace e início rápido.
-- [`docs/spec-driven-development.md`](../docs/spec-driven-development.md): guia
-  completo, etapa por etapa, do Spec Driven Development.
-- [`docs/parallel-work.md`](../docs/parallel-work.md): uso de branches,
-  worktrees, manifestos, publicação e encerramento.
+- [`docs/README.md`](../docs/README.md): índice e caminhos de leitura.
+- [`docs/ecossistema.md`](../docs/ecossistema.md): projetos, responsabilidades
+  e limites arquiteturais.
+- [`docs/como-trabalhar.md`](../docs/como-trabalhar.md): guia prático para
+  alterações e validações.
+- [`docs/spec-driven-development.md`](../docs/spec-driven-development.md):
+  conceito e fluxo completo de Spec Driven Development.
+- [`docs/parallel-work.md`](../docs/parallel-work.md): branches, worktrees,
+  manifestos, publicação e encerramento.
 
 ## Escopo dos artefatos
 
 PRDs, TechSpecs, tarefas, relatórios e evidências devem ser salvos em
-`tasks/prd-[slug]/` dentro do repositório responsável pela funcionalidade. Em
-mudanças que atravessem projetos, escolha um repositório coordenador e registre
-nos documentos todos os demais repositórios afetados.
+`tasks/prd-[slug]/` na raiz coordenadora do workspace. Em mudanças que
+atravessem projetos, registre nos documentos todos os repositórios, contratos e
+consumidores afetados.
 
 O projeto centralizado de QA com Playwright será criado separadamente. Até lá,
 não presuma a existência de configuração E2E na raiz.

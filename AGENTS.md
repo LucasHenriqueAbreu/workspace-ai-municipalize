@@ -34,10 +34,10 @@ que também hospeda as capacidades atuais de Chat e IA.
 
 ### Projetos legados — somente consulta
 
-- [`municipalize-chat-api`](municipalize-chat-api/) é legado. Sua função foi
+- `municipalize-chat-api` é legado. Sua função foi
   absorvida por `municipalize-admin-app`, especialmente por `src/modules/chat`
   e pelos módulos relacionados ao runtime de agentes e às ferramentas.
-- [`municipalize-mcp`](municipalize-mcp/) é legado. A execução das ferramentas
+- `municipalize-mcp` é legado. A execução das ferramentas
   foi incorporada à Admin API e não depende mais de um servidor MCP separado.
 
 Esses dois repositórios não fazem parte da arquitetura em uso e não devem ser
@@ -70,7 +70,9 @@ orientações e prevalecem quando forem mais específicas. Sempre leia o arquivo
 local antes de alterar código no respectivo projeto.
 
 As regras e skills pessoais compartilhadas estão catalogadas em
-[`.agents/README.md`](.agents/README.md). Aplique as
+[`.agents/README.md`](.agents/README.md). A documentação para pessoas começa
+no [`README.md`](README.md) e no [índice em `docs/`](docs/README.md); `.agents`
+é a configuração operacional dos agentes. Aplique as
 [`rules globais`](.agents/rules/) ao trabalho em qualquer projeto, respeitando a
 precedência documentada nesse catálogo. O fluxo padrão é criar PRD, criar
 TechSpec, criar e executar tasks, executar QA e, por último, executar o review

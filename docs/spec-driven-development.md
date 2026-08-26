@@ -1,9 +1,40 @@
 # Spec Driven Development no Municipalize
 
 Este documento orienta uma pessoa nova a conduzir uma funcionalidade do
-Municipalize desde a definição do problema até o código publicado. O processo
-usa especificações como contratos vivos: cada decisão deve poder ser rastreada
-do requisito ao teste, da implementação ao QA e do QA ao review.
+Municipalize desde a definição do problema até o código publicado.
+
+## O que é Spec Driven Development
+
+Spec Driven Development (SDD) é uma forma de desenvolver em que a
+especificação vem antes do código. Em vez de começar pela implementação e
+explicar as decisões depois, o time registra o problema, o comportamento
+esperado, a solução técnica e a divisão do trabalho antes de mudar o produto.
+
+No Municipalize, as especificações funcionam como contratos vivos: cada decisão
+deve poder ser rastreada do requisito ao teste, da implementação ao QA e do QA
+ao review. Isso reduz ambiguidades, torna impactos entre repositórios visíveis
+e facilita explicar por que uma mudança existe.
+
+SDD não significa burocracia para toda alteração. Uma correção pequena pode
+seguir o ciclo direto descrito em [Como trabalhar no workspace](como-trabalhar.md).
+Use o fluxo completo quando houver uma funcionalidade nova ou uma mudança
+relevante, com risco, múltiplos critérios de aceitação ou impacto em mais de
+um projeto.
+
+## As peças do processo
+
+| Peça | O que responde | Resultado |
+|---|---|---|
+| PRD | Qual problema será resolvido e para quem? | Escopo, requisitos e critérios de aceitação `CA-*` |
+| TechSpec | Como a solução atenderá o PRD? | Arquitetura, contratos, riscos e testes `TU-*`, `TI-*`, `E2E-*` |
+| Tasks | Em que ordem o trabalho será feito? | Entregas menores, dependências e estado da implementação |
+| Implementação | O que foi alterado no produto? | Código e testes que atendem cada tarefa |
+| QA | O comportamento realmente atende ao combinado? | Evidências, resultado dos critérios e correções revalidadas |
+| Review | O código final está seguro, coerente e pronto? | Veredito sobre o código após o QA |
+
+As etapas são sequenciais porque respondem perguntas diferentes. O review vem
+depois do QA: se o QA exigir uma correção, o código revisado precisa incluir
+essa correção.
 
 ## Visão do fluxo
 
@@ -43,10 +74,11 @@ skills globais, conforme a precedência documentada no workspace.
 - `municipalize-admin-app`: administração global, Chat, agentes, ferramentas,
   modelos de IA e LiteLLM.
 
-Se a funcionalidade atravessar projetos, escolha um repositório coordenador para
-os artefatos em `tasks/` e registre nos documentos todos os repositórios,
-contratos e consumidores afetados. Nunca mova a responsabilidade de um módulo
-para outro apenas para facilitar a implementação.
+Se a funcionalidade atravessar projetos, salve os artefatos em
+`tasks/prd-[slug]/` na raiz coordenadora do workspace (ou na raiz da sessão
+worktree) e registre todos os repositórios, contratos e consumidores afetados.
+Nunca mova a responsabilidade de um módulo para outro apenas para facilitar a
+implementação.
 
 ### 3. Prepare a branch
 
@@ -350,3 +382,21 @@ estão completos. Uma funcionalidade formal só está concluída quando:
 Bloqueios, falhas preexistentes e verificações não executadas devem permanecer
 visíveis nos relatórios. Transparência sobre o que não foi validado faz parte da
 definição de pronto.
+
+## Glossário rápido
+
+- **Critério de aceitação (`CA-*`)**: condição objetiva que prova que um
+  requisito de produto foi atendido.
+- **PRD**: documento de requisitos de produto; descreve o problema, o escopo e
+  o resultado esperado.
+- **TechSpec**: especificação técnica; descreve a solução, os contratos, riscos
+  e a estratégia de testes.
+- **Task**: unidade incremental de implementação, ligada a requisitos e casos
+  de teste.
+- **QA**: validação funcional e técnica da entrega, com evidências e correções
+  revalidadas.
+- **Review**: revisão final do código que já passou pelo QA.
+- **`TU-*`, `TI-*`, `E2E-*`**: identificadores de testes de unidade, integração
+  e ponta a ponta, respectivamente.
+
+Volte ao [índice da documentação](README.md) para os demais guias.

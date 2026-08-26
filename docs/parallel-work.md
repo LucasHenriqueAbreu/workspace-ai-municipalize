@@ -5,6 +5,10 @@ históricos Git independentes. A skill
 [`iniciar-tarefa-paralela`](../.agents/skills/iniciar-tarefa-paralela/SKILL.md)
 coordena esses repositórios sem transformá-los em submódulos.
 
+Este é um guia complementar. Para entender o fluxo completo, comece pelo
+[índice da documentação](README.md) e por
+[Como trabalhar no workspace](como-trabalhar.md).
+
 ## Escolha do modo
 
 | Modo | Quando usar | Resultado |

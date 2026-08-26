@@ -1,5 +1,16 @@
 # Regras de documentação
 
+## Navegação e localização
+
+O [`README.md`](../../README.md) da raiz é a porta de entrada do workspace. A
+documentação voltada a pessoas deve ficar em `docs/` e ser indexada em
+[`docs/README.md`](../../docs/README.md). Ao criar um guia compartilhado, inclua
+um link no índice e, quando fizer sentido, no README da raiz.
+
+Mantenha `AGENTS.md`, `rules/` e `skills/` como instruções operacionais para
+agentes. Eles podem apontar para os guias em `docs/`, mas não devem ser o único
+lugar em que uma pessoa descobre como o workspace funciona.
+
 ## Idioma e clareza
 
 Escreva a documentação do workspace em português do Brasil. Use nomes técnicos

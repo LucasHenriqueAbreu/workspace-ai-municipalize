@@ -1,0 +1,337 @@
+- generic [ref=f2e6]:
+  - complementary [ref=f2e8]:
+    - navigation [ref=f2e10]:
+      - generic [ref=f2e12]:
+        - generic [ref=f2e13]: Início
+        - button "Home" [ref=f2e15] [cursor=pointer]:
+          - generic "Home" [ref=f2e18]
+      - generic [ref=f2e20]:
+        - generic [ref=f2e21]: Gestão
+        - button "Projetos" [ref=f2e23] [cursor=pointer]:
+          - generic "Projetos" [ref=f2e26]
+        - button "Emendas" [ref=f2e27] [cursor=pointer]:
+          - generic "Emendas" [ref=f2e30]
+        - button "Alterações em Lote" [ref=f2e31] [cursor=pointer]:
+          - generic "Alterações em Lote" [ref=f2e34]
+        - button "Relatórios Beta" [ref=f2e35] [cursor=pointer]:
+          - generic "Relatórios" [ref=f2e38]
+          - generic [ref=f2e39]: Beta
+        - button "LOAs" [ref=f2e40] [cursor=pointer]:
+          - generic "LOAs" [ref=f2e43]
+        - button "Revisões" [ref=f2e44] [cursor=pointer]:
+          - generic "Revisões" [ref=f2e47]
+        - button "Ofícios Recebidos" [ref=f2e48] [cursor=pointer]:
+          - generic "Ofícios Recebidos" [ref=f2e51]
+        - button "Revisões Técnicas do Executivo" [ref=f2e52] [cursor=pointer]:
+          - generic "Revisões Técnicas do Executivo" [ref=f2e55]
+        - button "Cadastros" [ref=f2e56] [cursor=pointer]:
+          - generic "Cadastros" [ref=f2e59]
+        - button "Instituições" [ref=f2e60] [cursor=pointer]:
+          - generic "Instituições" [ref=f2e63]
+      - generic [ref=f2e65]:
+        - generic [ref=f2e66]: Ajuda
+        - button "Suporte" [ref=f2e68] [cursor=pointer]:
+          - generic "Suporte" [ref=f2e71]
+        - button "Notas de versão" [ref=f2e72] [cursor=pointer]:
+          - generic "Notas de versão" [ref=f2e75]
+      - button "AS Administrador Sintético admin@example.invalid" [ref=f2e79] [cursor=pointer]:
+        - generic [ref=f2e80]: AS
+        - generic [ref=f2e83]:
+          - generic [ref=f2e84]: Administrador Sintético
+          - generic [ref=f2e85]: admin@example.invalid
+    - button "Collapse sidebar" [expanded] [ref=f2e86] [cursor=pointer]
+  - generic [ref=f2e87]:
+    - banner [ref=f2e89]:
+      - button [ref=f2e90]
+      - navigation "breadcrumb" [ref=f2e94]:
+        - list [ref=f2e95]:
+          - listitem [ref=f2e96]:
+            - generic [ref=f2e97]: Home
+      - button "Ativar tema escuro" [ref=f2e99] [cursor=pointer]
+    - main [ref=f2e102]:
+      - generic [ref=f2e105]:
+        - generic [ref=f2e107]:
+          - generic [ref=f2e108]:
+            - heading "Boa tarde, Administrador Sintético!" [level=1] [ref=f2e109]
+            - paragraph [ref=f2e110]: Hoje é terça-feira, 25 de agosto.
+          - alert [ref=f2e112]:
+            - generic [ref=f2e117]:
+              - generic [ref=f2e118]: Para propor projetos, você precisa se tornar proponente
+              - generic [ref=f2e120]:
+                - generic [ref=f2e121]: Habilite sua conta para criar projetos.
+                - button "Quero propor projetos" [ref=f2e122]
+          - generic "Seções do portal" [ref=f2e125]:
+            - tablist [ref=f2e126]:
+              - tab "Dashboard" [selected] [ref=f2e127] [cursor=pointer]
+              - tab "Vereadores" [ref=f2e128] [cursor=pointer]
+              - tab "Instituições" [ref=f2e129] [cursor=pointer]
+            - generic:
+              - tabpanel "Dashboard"
+        - generic [ref=f2e131]:
+          - generic [ref=f2e132]:
+            - generic [ref=f2e133]:
+              - paragraph [ref=f2e134]: Dashboard de emendas
+              - heading "Monitoramento geral" [level=1] [ref=f2e135]
+              - paragraph [ref=f2e136]: Acompanhe o total de emendas por vereador, bancada, status, secretaria e instituição. Os indicadores gerais desconsideram emendas com impedimento técnico.
+            - button "Disparar snapshot do dashboard" [ref=f2e138]: Disparar snapshot
+          - generic [ref=f2e140]:
+            - generic [ref=f2e141]:
+              - generic [ref=f2e142]:
+                - paragraph [ref=f2e143]: Vereadores
+                - paragraph [ref=f2e144]: Totais de emendas individuais por vereador responsável.
+              - generic [ref=f2e145]:
+                - generic [ref=f2e146]: Snapshot 20/08/2026
+                - generic "Selecionar fluxo" [ref=f2e150]:
+                  - tablist [ref=f2e151]:
+                    - tab "Destino" [selected] [ref=f2e152] [cursor=pointer]
+                    - tab "Origem" [ref=f2e153] [cursor=pointer]
+                  - generic:
+                    - tabpanel "Dashboard"
+            - generic [ref=f2e154]:
+              - generic [ref=f2e156]:
+                - generic [ref=f2e157]:
+                  - generic [ref=f2e158]: "Legenda:"
+                  - button "Mostrar todos" [ref=f2e159]
+                - generic "Controlar categorias da legenda" [ref=f2e161]:
+                  - group [ref=f2e162]:
+                    - button "Ocultar Maria de Teste" [pressed] [ref=f2e163] [cursor=pointer]:
+                      - generic [ref=f2e164]: Maria de Teste
+              - article [ref=f2e166]:
+                - generic [ref=f2e167]:
+                  - button "Maria de Teste" [ref=f2e168]
+                  - generic [ref=f2e169]: Partido Exemplo · MT
+                  - generic "Total de emendas individuais" [ref=f2e170]: R$ 1.250.000,00
+                  - generic [ref=f2e171]: 14 emendas individuais
+                  - generic [ref=f2e172]: Sem dados para este snapshot.
+          - generic [ref=f2e174]:
+            - generic [ref=f2e175]:
+              - generic [ref=f2e176]:
+                - paragraph [ref=f2e177]: Bancadas
+                - paragraph [ref=f2e178]: Totais de emendas de bancada por bancada responsável.
+              - generic [ref=f2e179]:
+                - generic [ref=f2e180]: Snapshot 20/08/2026
+                - generic "Selecionar fluxo de bancadas" [ref=f2e184]:
+                  - tablist [ref=f2e185]:
+                    - tab "Destino" [selected] [ref=f2e186] [cursor=pointer]
+                    - tab "Origem" [ref=f2e187] [cursor=pointer]
+                  - generic:
+                    - tabpanel "Dashboard"
+            - generic [ref=f2e188]:
+              - generic [ref=f2e190]:
+                - generic [ref=f2e191]:
+                  - generic [ref=f2e192]: "Legenda:"
+                  - button "Mostrar todos" [ref=f2e193]
+                - generic "Controlar categorias da legenda" [ref=f2e195]:
+                  - group [ref=f2e196]:
+                    - button "Ocultar Maria de Teste" [pressed] [ref=f2e197] [cursor=pointer]:
+                      - generic [ref=f2e198]: Maria de Teste
+              - article [ref=f2e200]:
+                - generic [ref=f2e201]:
+                  - generic [ref=f2e202]: Maria de Teste
+                  - generic [ref=f2e203]: Partido Exemplo · MT
+                  - generic "Total de emendas de bancada" [ref=f2e204]: R$ 1.250.000,00
+                  - generic [ref=f2e205]: 0 emendas de bancada
+                  - generic [ref=f2e206]: Sem dados para este snapshot.
+          - generic [ref=f2e208]:
+            - generic [ref=f2e210]:
+              - paragraph [ref=f2e211]: Instituições beneficiadas
+              - paragraph [ref=f2e212]: Totais por tipo de emenda (individual e bancada).
+            - generic [ref=f2e213]:
+              - generic [ref=f2e215]:
+                - generic [ref=f2e216]:
+                  - generic [ref=f2e217]: "Legenda:"
+                  - button "Mostrar todos" [ref=f2e218]
+                - generic "Controlar categorias da legenda" [ref=f2e220]:
+                  - group [ref=f2e221]:
+                    - button "Ocultar Maria de Teste" [pressed] [ref=f2e222] [cursor=pointer]:
+                      - generic [ref=f2e223]: Maria de Teste
+              - article [ref=f2e225]:
+                - generic [ref=f2e226]:
+                  - generic [ref=f2e227]: Maria de Teste
+                  - generic [ref=f2e228]: Partido Exemplo · MT
+                  - generic "Total geral (soma de individuais e bancada)" [ref=f2e229]: R$ 1.250.000,00
+                - generic [ref=f2e230]:
+                  - generic [ref=f2e231] [cursor=pointer]: Individual
+                  - generic [ref=f2e234] [cursor=pointer]: Bancada
+                - list [ref=f2e237]:
+                  - listitem [ref=f2e238]:
+                    - generic [ref=f2e239]:
+                      - generic [ref=f2e240]: Emendas Individuais
+                      - 'generic "Emendas Individuais: total em valores" [ref=f2e241]': R$ 1.250.000,00
+                    - generic [ref=f2e242]: 14 emendas
+                  - listitem [ref=f2e243]:
+                    - generic [ref=f2e244]:
+                      - generic [ref=f2e245]: Emendas de Bancada
+                      - 'generic "Emendas de Bancada: total em valores" [ref=f2e246]': R$ 0,00
+                    - generic [ref=f2e247]: 0 emendas
+          - list [ref=f2e249]:
+            - listitem [ref=f2e250]:
+              - generic [ref=f2e251]: R$ 1.250.000,00
+            - listitem [ref=f2e253]:
+              - generic [ref=f2e254]: R$ 0,00
+            - listitem [ref=f2e256]:
+              - generic [ref=f2e257]: R$ 0,00
+            - listitem [ref=f2e259]:
+              - generic [ref=f2e260]: R$ 0,00
+          - generic [ref=f2e262]:
+            - generic "Totais por vereador" [ref=f2e264]:
+              - generic [ref=f2e267]:
+                - img "Distribuição dos valores por categoria." [ref=f2e268]
+                - generic [ref=f2e271]:
+                  - button "Ver dados em tabela" [ref=f2e272] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e275]:
+                      - rowgroup [ref=f2e276]:
+                        - row [ref=f2e277]:
+                          - columnheader "Categoria" [ref=f2e278]
+                          - columnheader "Quantidade" [ref=f2e279]
+                          - columnheader "Valor" [ref=f2e280]
+                      - rowgroup [ref=f2e281]:
+                        - row [ref=f2e282]:
+                          - cell "Maria de Teste" [ref=f2e283]
+                          - cell "14" [ref=f2e284]
+                          - cell "R$ 1.250.000,00" [ref=f2e285]
+            - generic "Totais por status" [ref=f2e287]:
+              - generic [ref=f2e290]:
+                - img "Distribuição dos valores por categoria." [ref=f2e291]
+                - generic [ref=f2e294]:
+                  - button "Ver dados em tabela" [ref=f2e295] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e298]:
+                      - rowgroup [ref=f2e299]:
+                        - row [ref=f2e300]:
+                          - columnheader "Categoria" [ref=f2e301]
+                          - columnheader "Quantidade" [ref=f2e302]
+                          - columnheader "Valor" [ref=f2e303]
+                      - rowgroup [ref=f2e304]:
+                        - row [ref=f2e305]:
+                          - cell "MT" [ref=f2e306]
+                          - cell "14" [ref=f2e307]
+                          - cell "R$ 1.250.000,00" [ref=f2e308]
+          - generic [ref=f2e309]:
+            - generic [ref=f2e310]:
+              - generic [ref=f2e311]:
+                - paragraph [ref=f2e312]: Detalhamento por vereador
+                - paragraph [ref=f2e313]: Tabela detalhada do agrupamento selecionado.
+              - generic "Selecionar agrupamento para tabela" [ref=f2e316]:
+                - tablist [ref=f2e317]:
+                  - tab "Por responsável" [selected] [ref=f2e318] [cursor=pointer]
+                  - tab "Por criador" [ref=f2e319] [cursor=pointer]
+                  - tab "Por vereador" [ref=f2e320] [cursor=pointer]
+                  - tab "Por bancada" [ref=f2e321] [cursor=pointer]
+                - generic:
+                  - tabpanel "Dashboard"
+            - generic "Tabela detalhada do agrupamento selecionado" [ref=f2e322]:
+              - generic "Tabela detalhada com rolagem interna" [ref=f2e323]:
+                - table [ref=f2e324]:
+                  - caption [ref=f2e325]: Dados do agrupamento selecionado
+                  - rowgroup [ref=f2e326]:
+                    - row [ref=f2e327]:
+                      - columnheader "Categoria" [ref=f2e328]
+                      - columnheader "Quantidade" [ref=f2e329]
+                      - columnheader "Valor individual" [ref=f2e330]
+                      - columnheader "Valor de bancada" [ref=f2e331]
+                      - columnheader "Detalhes" [ref=f2e332]
+                  - rowgroup [ref=f2e333]:
+                    - row [ref=f2e334]:
+                      - cell "Maria de Teste" [ref=f2e335]
+                      - cell "14" [ref=f2e336]
+                      - cell "R$ 1.250.000,00" [ref=f2e337]
+                      - cell "R$ 0,00" [ref=f2e338]
+                      - cell "Detalhamento disponível nos cards." [ref=f2e339]
+          - generic [ref=f2e340]:
+            - generic "Totais por secretaria" [ref=f2e341]:
+              - generic [ref=f2e344]:
+                - img "Distribuição dos valores por categoria." [ref=f2e345]
+                - generic [ref=f2e348]:
+                  - button "Ver dados em tabela" [ref=f2e349] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e352]:
+                      - rowgroup [ref=f2e353]:
+                        - row [ref=f2e354]:
+                          - columnheader "Categoria" [ref=f2e355]
+                          - columnheader "Quantidade" [ref=f2e356]
+                          - columnheader "Valor" [ref=f2e357]
+                      - rowgroup [ref=f2e358]:
+                        - row [ref=f2e359]:
+                          - cell "Maria de Teste" [ref=f2e360]
+                          - cell "14" [ref=f2e361]
+                          - cell "R$ 1.250.000,00" [ref=f2e362]
+            - generic "Totais por instituição" [ref=f2e363]:
+              - generic [ref=f2e366]:
+                - img "Distribuição dos valores por categoria." [ref=f2e367]
+                - generic [ref=f2e370]:
+                  - button "Ver dados em tabela" [ref=f2e371] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e374]:
+                      - rowgroup [ref=f2e375]:
+                        - row [ref=f2e376]:
+                          - columnheader "Categoria" [ref=f2e377]
+                          - columnheader "Quantidade" [ref=f2e378]
+                          - columnheader "Valor" [ref=f2e379]
+                      - rowgroup [ref=f2e380]:
+                        - row [ref=f2e381]:
+                          - cell "Maria de Teste" [ref=f2e382]
+                          - cell "14" [ref=f2e383]
+                          - cell "R$ 1.250.000,00" [ref=f2e384]
+            - generic "Totais por função" [ref=f2e385]:
+              - generic [ref=f2e388]:
+                - img "Distribuição dos valores por categoria." [ref=f2e389]
+                - generic [ref=f2e392]:
+                  - button "Ver dados em tabela" [ref=f2e393] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e396]:
+                      - rowgroup [ref=f2e397]:
+                        - row [ref=f2e398]:
+                          - columnheader "Categoria" [ref=f2e399]
+                          - columnheader "Quantidade" [ref=f2e400]
+                          - columnheader "Valor" [ref=f2e401]
+                      - rowgroup [ref=f2e402]:
+                        - row [ref=f2e403]:
+                          - cell "Maria de Teste" [ref=f2e404]
+                          - cell "14" [ref=f2e405]
+                          - cell "R$ 1.250.000,00" [ref=f2e406]
+            - generic "Totais por natureza da despesa" [ref=f2e407]:
+              - generic [ref=f2e410]:
+                - img "Distribuição dos valores por categoria." [ref=f2e411]
+                - generic [ref=f2e414]:
+                  - button "Ver dados em tabela" [ref=f2e415] [cursor=pointer]
+                  - region "Ver dados em tabela":
+                    - table "Dados equivalentes do gráfico" [ref=f2e418]:
+                      - rowgroup [ref=f2e419]:
+                        - row [ref=f2e420]:
+                          - columnheader "Categoria" [ref=f2e421]
+                          - columnheader "Quantidade" [ref=f2e422]
+                          - columnheader "Valor" [ref=f2e423]
+                      - rowgroup [ref=f2e424]:
+                        - row [ref=f2e425]:
+                          - cell "Maria de Teste" [ref=f2e426]
+                          - cell "14" [ref=f2e427]
+                          - cell "R$ 1.250.000,00" [ref=f2e428]
+          - generic [ref=f2e432]:
+            - generic [ref=f2e433]:
+              - generic [ref=f2e435]:
+                - generic [ref=f2e436]: Quantidade
+                - generic [ref=f2e437]: "1"
+                - generic [ref=f2e438]: Snapshot 20/08/2026
+              - generic [ref=f2e440]:
+                - generic [ref=f2e441]: Valor total
+                - generic [ref=f2e442]: R$ 75.000,00
+            - table "Impedimentos técnicos" [ref=f2e444]:
+              - rowgroup [ref=f2e445]:
+                - row [ref=f2e446]:
+                  - columnheader "Emenda" [ref=f2e447]
+                  - columnheader "Responsável" [ref=f2e448]
+                  - columnheader "Instituição" [ref=f2e449]
+                  - columnheader "Valor" [ref=f2e450]
+                  - columnheader "Motivo" [ref=f2e451]
+              - rowgroup [ref=f2e452]:
+                - row [ref=f2e453]:
+                  - cell "E2E-9001" [ref=f2e454]
+                  - cell "Maria de Teste" [ref=f2e455]
+                  - cell "Instituição Sintética" [ref=f2e456]
+                  - cell "R$ 75.000,00" [ref=f2e457]
+                  - cell [ref=f2e458]:
+                    - text: Motivo sintético do impedimento técnico.
+                    - button "Ver detalhe" [ref=f2e459]
+    - contentinfo [ref=f2e461]: Impulsionado pela 4Labs © 2025–2026 · Todos os direitos reservados · Municipalize v1.4.6

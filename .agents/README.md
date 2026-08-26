@@ -50,7 +50,8 @@ reduza segurança, isolamento entre tenants ou proteção de dados.
 - [`executar-task`](skills/executar-task/SKILL.md): implementa uma tarefa e seus
   testes.
 - [`executar-qa`](skills/executar-qa/SKILL.md): valida requisitos, corrige defeitos
-  e produz evidências.
+  e produz evidências. Os testes de navegador centralizados ficam em
+  [`../e2e/`](../e2e/README.md).
 - [`executar-review`](skills/executar-review/SKILL.md): executa a revisão final do
   código já validado pelo QA.
 - [`iniciar-tarefa-paralela`](skills/iniciar-tarefa-paralela/SKILL.md): prepara
@@ -93,5 +94,5 @@ PRDs, TechSpecs, tarefas, relatórios e evidências devem ser salvos em
 atravessem projetos, registre nos documentos todos os repositórios, contratos e
 consumidores afetados.
 
-O projeto centralizado de QA com Playwright será criado separadamente. Até lá,
-não presuma a existência de configuração E2E na raiz.
+O projeto centralizado de QA com Playwright fica em `../e2e/`, fora dos projetos
+filhos. Suas regras de instalação e execução estão em `../e2e/README.md`.

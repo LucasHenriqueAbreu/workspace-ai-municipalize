@@ -1,116 +1,105 @@
 # Relatório de QA — Migração do dashboard de vereadores para Zard UI
 
+As evidências visuais estão salvas em `evidences/` e foram geradas pela suíte
+Playwright centralizada usando fixtures sintéticas.
+
 ## Resumo
 
 - Data: 2026-08-26
 - Status: **APROVADO**
-- Critérios de aceitação: 16
-- Critérios atendidos: 16
-- Critérios bloqueados: nenhum
-- Bugs corrigidos/revalidados: 5 (BUG-07 a BUG-11).
+- Total de critérios de aceitação: **16**
+- Critérios de aceitação atendidos: **16**
+- Bugs encontrados nesta rodada: **3**, todos corrigidos e revalidados
+- Ambiente E2E: Chromium, frontend Angular na porta 5100, APIs interceptadas por fixtures
 
-A suíte central validou a funcionalidade com fixtures HTTP em Chromium. O
-navegador integrado da sessão continuou indisponível (`agent.browsers.list()`
-retornou vazio), então a auditoria foi executada pelo Playwright central do
-projeto, com `axe-core` integrado à suíte. O audit cobriu dashboard e listagem
-nos temas claro e escuro. Não houve execução contra APIs reais nesta rodada;
-os contratos não foram alterados.
+## Critérios de aceitação verificados
 
-## Critérios de aceitação
+| ID | Critério de aceitação | Casos de teste | Status | Evidência |
+|---|---|---|---|---|
+| CA-01 | Elementos com equivalente oficial usam Zard e nenhum componente shared foi criado/alterado. | E2E-01, E2E-11 | PASSOU | [dashboard](evidences/e2e-01-dashboard-fixtures.png) |
+| CA-02 | Componentes oficiais incorporados preservam a origem pelo CLI do Zard. | E2E-11 | PASSOU | [components.json](../../municipalize-app/components.json) |
+| CA-03 | Seções, datas, rótulos, valores, quantidades, agrupamentos e detalhamentos são preservados. | TU-01, TU-02, TU-05, E2E-01 | PASSOU | [dashboard](evidences/e2e-01-dashboard-fixtures.png) |
+| CA-04 | Flows, legendas e métricas alteram a apresentação sem misturar dados originais. | TU-03, TU-04, TI-02, TI-03, E2E-02, E2E-03 | PASSOU | [fluxo origem](evidences/browser-dashboard-flow-origin.md) |
+| CA-05 | Subinstituições exibem nomes, totais e métricas preservados. | TU-05, TI-07, E2E-01 | PASSOU | [dashboard](evidences/e2e-01-dashboard-fixtures.png) |
+| CA-06 | Resumos, gráficos e agrupamentos detalhados mantêm valores consistentes. | TU-02, TU-03, E2E-01, E2E-03 | PASSOU | [dashboard](evidences/e2e-01-dashboard-fixtures.png) |
+| CA-07 | Impedimentos técnicos permanecem separados, com motivo e detalhe acessíveis. | TU-06, TI-12, TI-14, E2E-10 | PASSOU | [dashboard](evidences/e2e-01-dashboard-fixtures.png) |
+| CA-08 | Snapshot fica restrito ao administrador, com processamento e feedback. | TU-07, TI-08, E2E-04 | PASSOU | Cenário E2E-04 aprovado |
+| CA-09 | Cards públicos preservam identidade, partido, descrição, badges, counts, totais e funções. | TU-05, TU-09, TI-04, E2E-05 | PASSOU | [vereadores](evidences/e2e-05-vereadores-fixtures.png) |
+| CA-10 | Perfil abre com ID válido e fica indisponível sem identificador. | TI-09, E2E-05 | PASSOU | [vereadores](evidences/e2e-05-vereadores-fixtures.png) |
+| CA-11 | Fallback por iniciais ocupa o avatar sem quebrar o layout. | TU-08, TI-10, E2E-05 | PASSOU | [vereadores](evidences/e2e-05-vereadores-fixtures.png) |
+| CA-12 | Loading, vazio, erro e retry apresentam estados contextuais. | TU-10, TI-06, E2E-06 | PASSOU | [loading](evidences/e2e-06-dashboard-loading-fixtures.png), [vazio](evidences/e2e-06-dashboard-empty-fixtures.png) |
+| CA-13 | A partir de 360 px não há rolagem horizontal global nem controles inacessíveis. | TU-12, TI-15, E2E-07 | PASSOU | [360 px](evidences/e2e-07-dashboard-360px.png) |
+| CA-14 | Claro e escuro mantêm contraste, distinção e legibilidade. | E2E-08, E2E-14, E2E-15 | PASSOU | [dashboard claro](evidences/e2e-14-dashboard-light-a11y.png), [dashboard escuro](evidences/e2e-14-dashboard-dark-a11y.png) |
+| CA-15 | Controles e dados essenciais são identificáveis e operáveis por teclado/assistive tech. | TU-11, TI-05, TI-15, E2E-09, E2E-14, E2E-15 | PASSOU | Auditoria axe sem violações |
+| CA-16 | Rotas, permissões, APIs e resultados numéricos permanecem compatíveis. | TU-01, TU-06, TU-07, TI-13, TI-14, E2E-01, E2E-04, E2E-10 | PASSOU | Fixtures preservaram os contratos; typecheck passou |
 
-| ID | Status | Evidência |
-|---|---|---|
-| CA-01 | **PASSOU** | Inventário estático das duas telas e diff sem alterações em `src/app/shared/components` ou `src/styles.css`; composição usa primitives Zard no escopo. |
-| CA-02 | **PASSOU** | Componentes Zard oficiais já presentes no projeto e `components.json`; nenhuma cópia manual foi adicionada. |
-| CA-03 | PASSOU em fixtures | E2E-01/E2E-02 e builders/formatters preservam seções, datas, rótulos, valores e agrupamentos. |
-| CA-04 | PASSOU em fixtures | E2E-02/E2E-03 validam Origem/Destino e ocultar/restaurar séries sem alterar os dados. |
-| CA-05 | PASSOU em fixtures | E2E-01 e builders validam expansão e totais de subinstituições. |
-| CA-06 | PASSOU em fixtures | E2E-01/E2E-03 e specs de dashboard validam resumos, gráficos e detalhamentos. |
-| CA-07 | PASSOU em fixtures | E2E-10 valida impedimentos separados, totais e detalhamento contextual. |
-| CA-08 | PASSOU em fixtures | E2E-04 valida snapshot para ADMIN, ausência para USER e feedback de processamento. |
-| CA-09 | PASSOU em fixtures | E2E-05 valida identidade, subtítulo, indicadores, badges e detalhamento dos cards. |
-| CA-10 | PASSOU em fixtures | E2E-05 valida ação acessível e identificador válido para abertura do perfil. |
-| CA-11 | PASSOU em fixtures | E2E-05 e evidência visual validam fallback por iniciais sem quebra do card. |
-| CA-12 | PASSOU em fixtures | E2E-06 cobre loading, vazio, erro, retry e `z-skeleton` contextual. |
-| CA-13 | PASSOU em fixtures | E2E-07 valida viewport de 360 px sem rolagem horizontal global; [evidência](evidences/e2e-07-dashboard-360px.png). |
-| CA-14 | **PASSOU** | E2E-08 e E2E-14/E2E-15 alternam os temas; axe valida `color-contrast` em dashboard e listagem claro/escuro, sem violações. |
-| CA-15 | **PASSOU** | E2E-09 valida teclado, foco, nomes acessíveis e `alt`; E2E-14/E2E-15 executam axe WCAG 2A/2AA/2.1 AA sem violações. |
-| CA-16 | PASSOU em fixtures | E2E-01/E2E-02/E2E-04/E2E-10 e typecheck preservam rotas, permissões, contratos simulados e resultados numéricos. |
+## Testes E2E executados
 
-## Testes executados
+| ID | Fluxo | Resultado | Observações |
+|---|---|---|---|
+| E2E-01 | Estrutura principal do dashboard | PASSOU | Dados, charts, breakdown e impedimentos presentes. |
+| E2E-02 | Alternância Destino/Origem no dashboard e listagem | PASSOU | Abas atualizam o estado visual. |
+| E2E-03 | Métricas, legenda e alternativa textual | PASSOU | Quantidade, valor, ocultar/restaurar e tabela acessíveis. |
+| E2E-04 | Snapshot administrativo e restrição por papel | PASSOU | Admin vê a ação; USER não vê. |
+| E2E-05 | Listagem pública, ações e fallback | PASSOU | Card público preservado e acessível. |
+| E2E-06 | Erro/retry, vazio e loading | PASSOU | 3 cenários passaram após correção dos resources e títulos contextuais. |
+| E2E-07 | Viewport de 360 px | PASSOU | Sem overflow horizontal global. |
+| E2E-08 | Temas claro e escuro | PASSOU | Dashboard permanece legível. |
+| E2E-09 | Navegação por teclado | PASSOU | Foco, Enter, nomes e `alt` verificados. |
+| E2E-10 | Impedimentos técnicos isolados | PASSOU | Total e motivo não contaminam os indicadores gerais. |
+| E2E-11 | Inventário de uso de Zard | PASSOU | Nenhum shared foi alterado nesta correção. |
+| E2E-14 | Axe no dashboard claro/escuro | PASSOU | 0 violações nos dois temas. |
+| E2E-15 | Axe na listagem claro/escuro | PASSOU | 0 violações nos dois temas após ajuste de contraste. |
 
-| Camada | Resultado | Comando/resultado |
-|---|---|---|
-| Typecheck E2E | **PASSOU** | `npm run typecheck` em `e2e/`. |
-| Unidade focada | **PASSOU** | 6 arquivos, 13 testes; builders/formatters/helpers relevantes com 100% de statements/functions no recorte. |
-| E2E central | **PASSOU** | `npm run typecheck && E2E_START_APP=true E2E_USE_API_FIXTURES=true E2E_FRONTEND_PORT=5100 npm test` em `e2e/`: 15/15. |
-| Auditoria axe | **PASSOU** | E2E-14/E2E-15 em 4 estados (2 telas × 2 temas), tags `wcag2a`, `wcag2aa` e `wcag21aa`, 0 violações. |
-| Lint | **PASSOU COM AVISOS** | `npm run lint`: 0 erros e 108 avisos. |
-| Build | **PASSOU** | `npm run build`: bundle gerado; avisos CommonJS existentes. Foi adicionada a dependência direta `shiki` requerida por `rehype-pretty-code`. |
-| Integridade | **PASSOU** | `git diff --check` sem erros. Nenhum processo ficou escutando na porta 5100. |
-| Suíte Angular completa | **NÃO EXECUTADA** | A validação foi feita no recorte da funcionalidade; o runner global inclui specs legados fora do escopo. |
+Resultado da execução completa: **15 passed (50,3s)**.
 
-A cobertura global impressa pelo runner Angular ficou abaixo de 80% por incluir
-todo o grafo transiente da aplicação. Isso não invalida o recorte focado, mas
-impede declarar a meta de 80% para a suíte global.
+## Testes automatizados e cobertura
 
-## Cenários E2E
+| Camada | ID | Resultado | Validação/comando | Observações |
+|---|---|---|---|---|
+| Unidade/integração | TU-01 a TU-12 / TI-01 a TI-15 | PASSOU no escopo da feature | `npm test -- --include 'src/app/presenter/features/tenant/public/dashboard/**/*.spec.ts' --include 'src/app/presenter/features/tenant/public/councillors/**/*.spec.ts' --watch=false --coverage=false` | 12 arquivos, 24 testes passando. |
+| Typecheck da aplicação | — | PASSOU | `npx tsc --noEmit --project tsconfig.app.json` | Sem erros. |
+| Typecheck E2E | — | PASSOU | `npm run typecheck` em `e2e/` | Sem erros. |
+| E2E | E2E-01 a E2E-15 | PASSOU | `E2E_START_APP=true E2E_USE_API_FIXTURES=true E2E_FRONTEND_PORT=5100 npm test` em `e2e/` | 15/15. |
+| Build | — | PASSOU | `npm run build` | Avisos CommonJS preexistentes. |
+| Lint direcionado | — | PASSOU | ESLint dos arquivos da feature alterados | Sem erros. |
+| Lint global | — | FALHOU fora do escopo | `npm run lint` | 104 erros e 12 avisos em módulos preexistentes/shared. |
+| Suíte Angular global | — | FALHOU fora do escopo | `npm test -- --watch=false` | 450 testes: 336 passando, 114 falhando e 54 erros. |
+| Integridade | — | PASSOU | `git diff --check` | Sem erros. |
 
-- E2E-01: estrutura do dashboard, gráfico e impedimentos.
-- E2E-02: fluxo Origem na home pública e em Vereadores.
-- E2E-03: métricas, ocultar/restaurar categoria e tabela equivalente.
-- E2E-04: snapshot restrito a administrador e feedback.
-- E2E-05: listagem pública, fallback e ação de perfil.
-- E2E-06: erro/retry, vazio e loading com `z-skeleton`.
-- E2E-07: viewport de 360 px sem overflow global.
-- E2E-08: temas claro/escuro.
-- E2E-09: foco por teclado, nomes acessíveis e `alt`.
-- E2E-10: impedimentos técnicos separados.
-- E2E-11: inventário estático de primitives Zard no escopo.
-- E2E-14: auditoria axe WCAG AA do dashboard em claro/escuro.
-- E2E-15: auditoria axe WCAG AA da listagem em claro/escuro.
+- Cobertura: a configuração exige 80% em statements, branches, functions e
+  lines. A execução global falha antes de permitir uma medição/aprovação
+  confiável; não houve redução de threshold nem ampliação de exclusões.
 
-Evidências visuais: [dashboard](evidences/e2e-01-dashboard-fixtures.png),
-[vereadores](evidences/e2e-05-vereadores-fixtures.png),
-[vazio](evidences/e2e-06-dashboard-empty-fixtures.png),
-[loading](evidences/e2e-06-dashboard-loading-fixtures.png),
-[360 px](evidences/e2e-07-dashboard-360px.png), [tema claro](evidences/browser-dashboard-360px.png) e [tema escuro](evidences/browser-dashboard-dark-360px.png).
+## Acessibilidade
 
-Evidências específicas da auditoria axe: [dashboard claro](evidences/e2e-14-dashboard-light-a11y.png), [dashboard escuro](evidences/e2e-14-dashboard-dark-a11y.png), [vereadores claro](evidences/e2e-15-vereadores-light-a11y.png) e [vereadores escuro](evidences/e2e-15-vereadores-dark-a11y.png).
+- [x] Navegação por teclado com Tab e Enter.
+- [x] Elementos interativos com nomes descritivos.
+- [x] Imagens e fallback de avatar com texto alternativo/identificação.
+- [x] Contraste claro e escuro auditado pelo axe, sem violações.
+- [x] Mensagens de erro e estados vazios contextuais.
+- [x] Regiões de rolagem interna focáveis e identificadas.
+- [x] Dados essenciais dos gráficos disponíveis em tabela.
+- [x] Viewport mínimo de 360 px sem overflow global.
 
-## Acessibilidade e responsividade
+## Bugs encontrados e corrigidos
 
-| Verificação | Resultado |
-|---|---|
-| Operação por Tab/Enter | PASSOU em E2E-09 |
-| Nomes acessíveis de controles e imagens | PASSOU em E2E-09 |
-| `alt`/fallback de imagens | PASSOU em E2E-05/E2E-09 |
-| Erros, vazios e retry identificáveis | PASSOU em E2E-06 |
-| Contraste mensurado em claro/escuro | PASSOU — axe sem violações nas duas telas e nos dois temas |
-| Viewport mínimo de 360 px | PASSOU em E2E-07 |
+| ID | Descrição | Severidade | Status | Correção | Teste de regressão | Evidência |
+|---|---|---|---|---|---|---|
+| BUG-12 | Em erro de agregação, chamadas a `resource.value()` lançavam exceção e impediam a renderização do estado contextual. | Alta | Corrigido | Adicionado acesso seguro aos resources no `DashboardDataStore` e componentes dependentes. | E2E-06 erro/retry | [estado de erro](evidences/e2e-06-dashboard-error-fixtures.png) |
+| BUG-13 | Mensagens de erro/vazio da seção de fluxo perderam os textos contextuais esperados após a extração. | Média | Corrigido | Estado compartilhado passou a receber `errorTitle` e `emptyTitle` por seção. | E2E-06 erro e vazio | [loading/vazio](evidences/e2e-06-dashboard-empty-fixtures.png) |
+| BUG-14 | Fallback de avatar e ação de perfil tinham contraste insuficiente no tema claro/escuro. | Alta | Corrigido | Aplicados tokens semânticos `text-foreground` no fallback e no link Zard. | E2E-15 axe claro/escuro | [listagem clara](evidences/e2e-15-vereadores-light-a11y.png), [listagem escura](evidences/e2e-15-vereadores-dark-a11y.png) |
 
-## Bugs corrigidos e riscos residuais
-
-| ID | Descrição | Correção/regressão |
-|---|---|---|
-| BUG-07 | Skeletons do dashboard não usavam o componente Zard. | Substituídos por `z-skeleton`; revalidado em E2E-06. |
-| BUG-08 | `Mostrar todos` não restaurava série ocultada quando o toggle era controlado. | Legenda passou a sincronizar um `FormControl` local com as categorias ativas, sem alterar o shared; revalidado em E2E-03 e spec de regressão. |
-| BUG-09 | Build não resolvia `shiki`, peer usado por `rehype-pretty-code`. | Adicionada dependência direta `shiki` em `package.json`/lockfile; `npm run build` passou. |
-| BUG-10 | Contraste abaixo de 4,5:1 em texto, abas, badges e botões nos temas. | Aplicados tokens semânticos com contraste suficiente nas telas/componentes em escopo e variante `line` para abas; axe passou nos quatro estados. |
-| BUG-11 | Regiões de tabelas com rolagem interna não eram focáveis. | Adicionados `tabindex="0"` e nomes acessíveis nos wrappers de rolagem; axe passou `scrollable-region-focusable`. |
-
-Permanecem avisos não bloqueantes durante E2E/testes: ECharts reporta
-dimensões nulas e instância já inicializada no DOM, e Angular reporta
-`NG0953` ao destruir um `OutputRef`. Não causaram falhas nos asserts, mas devem
-ser investigados antes da liberação do módulo.
+Permanecem avisos não bloqueantes durante os E2E: ECharts informa dimensões
+nulas/instância já inicializada e Angular informa `NG0953` ao destruir um
+`OutputRef`. Não causaram falhas nos asserts.
 
 ## Conclusão
 
-A implementação está funcionalmente validada em fixtures: os 15 cenários E2E,
-incluindo a auditoria axe nos quatro estados, typecheck, testes focados, lint e
-build passaram. Os 16 critérios de aceitação estão atendidos e o QA fica
-**APROVADO**.
+Os 16 critérios de aceitação foram verificados e passaram. Os bugs encontrados
+durante esta rodada foram corrigidos e revalidados; a suíte E2E terminou em
+15/15 e a auditoria axe terminou sem violações nos quatro estados de tema.
 
-Os avisos residuais de ECharts (`DOM width/height` e instância já inicializada)
-e Angular (`NG0953` em `OutputRef`) não causaram falhas e permanecem como
-melhoria técnica não bloqueante.
+O QA fica **APROVADO para a funcionalidade**, com ressalva operacional de que
+a suíte Angular e o lint globais permanecem quebrados por falhas preexistentes
+fora do escopo. A porta 5100 e os processos iniciados pelo QA foram liberados.

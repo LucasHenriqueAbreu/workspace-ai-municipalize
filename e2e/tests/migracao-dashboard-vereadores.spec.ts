@@ -137,6 +137,7 @@ test('E2E-06 exibe erro contextual e recupera a agregação após retry', async 
     return;
   }
   await expect(page.getByText('Erro ao carregar agregação por vereador')).toBeVisible();
+  await page.screenshot({ path: evidencePath('e2e-06-dashboard-error-fixtures.png'), fullPage: true });
   await page.getByRole('button', { name: 'Tentar novamente' }).first().click();
   await expect(page.getByRole('button', { name: 'Abrir perfil de Maria de Teste' })).toBeVisible();
 });

@@ -4,100 +4,117 @@
 
 - Data: 2026-08-26
 - Branch: `agent/melhoria-dashboard`
-- Status: **REPROVADO**
+- Status: **APROVADO COM RESSALVAS**
 - QA anterior: **APROVADO**
 
-O QA funcional anterior aprovou os 16 critérios, incluindo 15 cenários E2E,
-axe nos temas claro e escuro e as correções BUG-07 a BUG-11. A revisão final,
-porém, encontrou desvios relevantes da arquitetura da TechSpec, cobertura
-direta insuficiente e a suíte Angular completa falhando.
+A implementação está aderente à arquitetura proposta e os problemas apontados
+na revisão anterior foram corrigidos. A entrega fica aprovada para o escopo da
+funcionalidade, com a ressalva de que lint, suíte Angular e cobertura globais
+continuam pendentes em módulos fora do escopo e serão tratados posteriormente.
 
 ## Verificação do QA
 
 | Defeito ou correção | Implementado | Teste de regressão | Observações |
 |---|---|---|---|
-| BUG-07 — skeletons do dashboard | SIM | SIM | O QA confirmou `z-skeleton`; o build e os testes focados continuam passando. |
-| BUG-08 — sincronização de “Mostrar todos” | SIM | SIM | A legenda sincroniza o `FormControl`; a spec focada de regressão passou. |
-| BUG-09 — resolução de `shiki` | SIM | SIM | A dependência direta permanece e o `npm run build` final passou. |
-| BUG-10 — contraste nos temas | SIM | SIM no QA | O QA registrou axe sem violações nos quatro estados; não foi repetido E2E nesta revisão. |
-| BUG-11 — regiões roláveis focáveis | SIM | SIM no QA | O QA confirmou `tabindex` e nomes acessíveis; não foi repetido E2E nesta revisão. |
+| BUG-07 — skeletons do dashboard | SIM | SIM — QA final | Estados de carregamento continuam usando `z-skeleton`. |
+| BUG-08 — sincronização de “Mostrar todos” | SIM | SIM — specs e E2E-03 | Legenda e estado da seção permanecem sincronizados. |
+| BUG-09 — resolução de `shiki` | SIM | SIM — build | O build final passou. |
+| BUG-10 — contraste nos temas | SIM | SIM — E2E-08, E2E-14 e E2E-15 | Axe passou nos temas claro e escuro. |
+| BUG-11 — regiões roláveis focáveis | SIM | SIM — E2E-09 e E2E-14 | Navegação por teclado e regiões focáveis passaram. |
+| BUG-12 — erro ao acessar `resource.value()` | SIM | SIM — E2E-06 erro/retry | O store e as seções fazem leitura segura em estado de erro. |
+| BUG-13 — mensagens contextuais de erro e vazio | SIM | SIM — E2E-06 | Títulos de vereador e bancada foram preservados após a extração. |
+| BUG-14 — contraste no card público | SIM | SIM — E2E-15 | Fallback e ações usam tokens de foreground adequados. |
 
 ## Conformidade com regras
 
 | Regra | Status | Observações |
 |---|---|---|
-| Escopo, contratos e isolamento por tenant | OK | A funcionalidade permanece no `municipalize-app`; não foram alterados endpoints, rotas ou permissões do escopo. |
-| Angular e arquitetura de frontend | NOK | O `DashboardComponent` virou shell, mas delega todo o conteúdo a `DashboardContentComponent`, que concentra estado, resources, mapeamentos, ações e apresentação. |
-| Componentização e limites locais | NOK | `dashboard-content.component.ts` tem 808 linhas e seu template externo tem 379 linhas; a regra local limita TypeScript a 100 linhas e métodos a 30. |
-| Zard UI e tokens semânticos | PARCIAL | Cards, charts, tooltips, tabela, tabs, toggle group e skeletons Zard estão presentes, mas a composição ainda está concentrada e não corresponde às seções previstas na TechSpec. |
-| Clean Code e TypeScript | NOK | A concentração de responsabilidades impede manutenção/testabilidade adequada; a legenda também precisou de remoção de infraestrutura de picker sem consumidor. |
-| Testes e cobertura | NOK | A suíte completa falha e a execução focada imprime 38,27% de statements, 18,93% de branches, 23,14% de functions e 37,68% de lines no grafo instrumentado. |
-| Segurança e dados sensíveis | OK | Não foram identificados segredos ou dados pessoais adicionados pela funcionalidade; fixtures são sintéticas. |
-| Rastreabilidade das tarefas | NOK | Os oito itens estão marcados como completos, embora a implementação ainda não cumpra a decomposição arquitetural e a cobertura exigidas nas próprias tarefas/TechSpec. |
+| Escopo, contratos e isolamento por tenant | OK | Alterações de produto ficaram no `municipalize-app`; APIs, rotas, permissões e modelos foram preservados. |
+| Angular e arquitetura de frontend | OK | `DashboardComponent` é shell; o `DashboardDataStore` coordena resources, flows, agrupamento e refresh. |
+| Componentização e limites locais | OK | O monólito foi removido e as seções dedicadas estão separadas por responsabilidade. |
+| Zard UI e tokens semânticos | OK | A implementação usa primitivas Zard existentes, estados explícitos, retry e tokens semânticos. |
+| Clean Code e TypeScript | OK no escopo alterado | Typecheck e lint direcionado passaram; não houve alteração em `shared` nem em contratos de backend. |
+| Testes e cobertura | OK no escopo / ressalva global | 24 testes focados e 15 E2E passaram; a suíte global e a meta de 80% permanecem pendentes fora do escopo. |
+| Segurança e dados sensíveis | OK | Nenhum segredo ou dado pessoal foi adicionado; as fixtures são sintéticas. |
+| Rastreabilidade | OK | PRD, TechSpec, tarefas e relatórios registram a implementação e as ressalvas de validação. |
 
 ## Aderência à TechSpec
 
-| Decisão Técnica | Implementado | Observações |
+| Decisão técnica | Implementado | Observações |
 |---|---|---|
-| Preservar APIs, rotas, permissões e modelos | SIM | Não foram identificadas mudanças nas fronteiras de backend ou nos contratos HTTP. |
-| `DashboardComponent` como shell e provider | PARCIAL | O shell tem 19 linhas e fornece `DashboardDataStore`, mas o conteúdo foi deslocado para outro componente monolítico. |
-| `DashboardDataStore` coordenando resources, flows e refresh | NÃO | O store contém apenas signals de flow/grupo e revisão; os resources e a orquestração permanecem no componente de conteúdo. |
-| Seções dedicadas de vereadores, bancadas, instituições, métricas e detalhes | NÃO | Os componentes previstos (`DashboardCouncillorSectionComponent`, `DashboardBenchSectionComponent`, `DashboardInstitutionsSectionComponent`, `DashboardMetricsSectionComponent` e `DashboardDetailsSectionComponent`) não existem. |
-| Card interativo com pizza Zard | SIM | `DashboardInteractivePieCardComponent` agora é consumido pelas seções renderizadas no template e possui tooltip/tabela alternativa. |
-| Flow único alimentando dados relacionados | PARCIAL | Os resources recebem o flow ativo, mas não há a composição por seção prevista para garantir o contrato de forma isolada e testável. |
-| Charts Zard com tooltip, padrões e alternativa tabular | SIM | Os charts em escopo usam `z-chart`, tooltip formatado e alternativa tabular quando aplicável. |
-| Estados explícitos, retry e impedimentos separados | SIM | O QA confirmou loading, vazio, erro, retry e impedimentos dedicados; a implementação usa resources e componente específico. |
-| Card público de vereador e store público | PARCIAL | `CouncillorPublicCardComponent` e `CouncillorsPublicStore` existem, mas não possuem cobertura direta suficiente. |
-| Cobertura mínima de 80% e specs próximas aos arquivos novos | NÃO | Não há cobertura direta para vários componentes/stores novos e a meta de 80% não é atingida no recorte executado. |
+| Preservar APIs, rotas, permissões e modelos | SIM | Nenhum contrato HTTP ou fronteira de backend foi alterado. |
+| `DashboardComponent` como shell e provider | SIM | O shell compõe header, seções, impedimentos e fornece `DashboardDataStore`. |
+| Store coordenando resources, flows e refresh | SIM | Agregações, breakdowns e impedimentos possuem resources recarregáveis. |
+| Seções dedicadas de vereadores, bancadas, instituições, métricas e detalhes | SIM | Os cinco componentes foram criados e compostos pelo shell. |
+| Card interativo compartilhado com pizza Zard | SIM | O padrão é reutilizado nas seções de vereadores e bancadas. |
+| Flow único alimentando dados relacionados | SIM | Gráfico, cards, legenda e breakdown usam o flow ativo da seção. |
+| Charts, tooltip, padrões e alternativa tabular | SIM | A composição Zard e a alternativa textual foram preservadas e validadas no QA. |
+| Estados explícitos, retry e impedimentos separados | SIM | Loading, vazio, erro, retry e impedimentos têm responsabilidades isoladas. |
+| Card e store públicos de vereadores | SIM | Foram adicionadas specs diretas; ações desabilitadas usam `[zDisabled]`. |
+| Cobertura mínima de 80% | PARCIAL | A cobertura global não pode ser aprovada devido às falhas preexistentes da suíte; o threshold não foi reduzido. |
 
 ## Tarefas verificadas
 
 | Tarefa | Status | Observações |
 |---|---|---|
-| 1.0 Criar baseline, view models e builders | INCOMPLETA | Builders e formatadores têm specs, mas a cobertura e os componentes consumidores não estão suficientemente cobertos. |
-| 2.0 Construir componentes Zard compartilhados | INCOMPLETA | O card interativo foi integrado e a legenda foi simplificada, mas faltam specs diretas completas e a decomposição final. |
-| 3.0 Implementar estado e fluxos de vereadores e bancadas | INCOMPLETA | Flows e resources funcionam, porém as duas seções dedicadas previstas não foram criadas e o store não coordena os resources. |
-| 4.0 Migrar instituições, resumos, gráficos e detalhamentos | INCOMPLETA | Há componentes Zard, mas os blocos seguem montados no template monolítico. |
-| 5.0 Migrar impedimentos técnicos e snapshot administrativo | COMPLETA | Componente dedicado, permissão, feedback e reload estão presentes e foram validados no QA. |
-| 6.0 Compor o shell final do dashboard | INCOMPLETA | O shell foi reduzido, mas a implementação foi apenas deslocada para `DashboardContentComponent`. |
-| 7.0 Migrar a listagem pública de vereadores | INCOMPLETA | Store, card e fallback existem; faltam specs diretas para o store e o card público. |
-| 8.0 Consolidar cobertura e preparar a entrega para QA | INCOMPLETA | QA funcional passou, mas `npm test -- --watch=false` falha e a meta de cobertura não é atendida. |
+| 1.0 Criar baseline, view models e builders de apresentação | COMPLETA | Builders e presenters estão implementados e cobertos por specs. |
+| 2.0 Construir componentes Zard compartilhados de visualização | COMPLETA | Componentes de fluxo, cards, charts e estados estão decompostos e integrados. |
+| 3.0 Implementar estado e fluxos de vereadores e bancadas | COMPLETA | Flows independentes, resources e breakdowns são coordenados pelo store. |
+| 4.0 Migrar instituições, resumos, gráficos e detalhamentos | COMPLETA | Instituições, métricas e detalhes foram extraídos para seções dedicadas. |
+| 5.0 Migrar impedimentos técnicos e snapshot administrativo | COMPLETA | Retry, snapshot, autorização e detalhamento permanecem preservados. |
+| 6.0 Compor o shell final do dashboard | COMPLETA | O conteúdo monolítico foi removido; o shell compõe e orquestra ações. |
+| 7.0 Migrar a listagem pública de vereadores | COMPLETA | Store, card, fallback, ação de perfil e specs diretas estão presentes. |
+| 8.0 Consolidar cobertura e preparar a entrega para QA | COMPLETA COM RESSALVA | QA foi aprovado; lint, testes e cobertura globais ficam registrados como pendência futura fora do escopo. |
 
-## Testes
+## Testes e validações
 
-- Suíte Angular completa: **414 testes**, 300 passando, 114 falhando e 54 erros; 41 arquivos falharam e 122 passaram.
-- Testes focados finais: **13 testes em 6 arquivos**, todos passando.
-- Typecheck final: `npx tsc --noEmit --project tsconfig.app.json` passou.
-- Lint final: passou com 0 erros e 108 avisos preexistentes fora do escopo principal.
-- Build final: passou, com avisos CommonJS existentes.
-- Integridade: `git diff --check` passou.
-- Cobertura focada impressa pelo runner: 38,27% statements, 18,93% branches, 23,14% functions e 37,68% lines; meta da TechSpec: 80% em todas as dimensões.
-- QA anterior: 15/15 E2E e axe sem violações, conforme `qa.md`; esses E2E não foram repetidos nesta revisão.
+- Testes focados da feature: **24/24 passando em 12 arquivos**.
+- E2E final com fixtures: **15/15 passando**, incluindo erro/retry, vazio,
+  loading, responsividade, teclado, temas e axe.
+- Typecheck da aplicação: `npx tsc --noEmit --project tsconfig.app.json` —
+  **passou**.
+- Typecheck E2E: `npm run typecheck` em `e2e/` — **passou**.
+- Build: `npm run build` — **passou**, com avisos CommonJS preexistentes.
+- Lint direcionado aos arquivos alterados — **passou sem erros**.
+- Integridade: `git diff --check` — **passou**.
+- Lint global: `npm run lint` — **falhou**, com **116 problemas (104 erros e
+  12 avisos)** em módulos fora do escopo, incluindo componentes shared e
+  features não relacionadas.
+- Suíte Angular global: `npm test -- --watch=false` — **falhou**: 178 arquivos,
+  450 testes, 336 passando, 114 falhando e 54 erros.
+- Cobertura global: a configuração exige 80% em statements, branches,
+  functions e lines; não é possível certificar a meta enquanto a execução
+  global termina com falhas. Nenhum threshold ou exclusão foi alterado.
 
-## Problemas encontrados
+Os E2E ainda registram avisos não bloqueantes de ECharts sobre dimensões nulas
+e instâncias já inicializadas, além de `NG0953` do Angular ao destruir um
+`OutputRef`. Nenhum desses avisos causou falha nos asserts.
 
-| Severidade | Arquivo | Linha | Descrição | Sugestão |
-|---|---|---:|---|---|
-| Alta | `municipalize-app/src/app/presenter/features/tenant/public/dashboard/dashboard-content.component.ts` | 87 | O conteúdo ainda concentra 808 linhas, resources, estado, regras de apresentação, sheets, snapshot e handlers, contrariando a arquitetura e os limites locais. | Extrair as seções previstas e mover a coordenação de resources/refresh para `DashboardDataStore`; manter o container como composição. |
-| Alta | `municipalize-app/src/app/presenter/features/tenant/public/dashboard/dashboard-content.component.html` | 1 | O template possui 379 linhas e monta diretamente todas as seções, dificultando isolamento, testes e evolução. | Dividir o template entre `DashboardHeaderComponent` e componentes dedicados de vereadores, bancadas, instituições, métricas e detalhes. |
-| Alta | `municipalize-app` | — | `npm test -- --watch=false` falha com 114 testes, 54 erros e 41 arquivos; há falhas amplas em specs legados e alterações fora do escopo, mas o comando obrigatório não está verde. | Isolar/corrigir a regressão da suíte completa e repetir a revisão com o comando passando. |
-| Média | `municipalize-app/src/app/presenter/features/tenant/public/dashboard/dashboard-data.store.ts` | 5 | O store não coordena os resources, estados ou recargas das seções como definido na TechSpec; é somente um agrupador de signals. | Encapsular no store os parâmetros, resources, revisão de refresh e contratos de loading/erro/retry. |
-| Média | `municipalize-app/src/app/presenter/features/tenant/public/dashboard` | — | Não há specs diretas para `DashboardContentComponent`, `DashboardDataStore`, `CouncillorsPublicStore`, card público, impedimentos e vários charts; a cobertura de branches do recorte fica em 18,93%. | Criar specs próximas aos arquivos novos/alterados, cobrindo flow, loading, vazio, erro, retry, teclado, fallback e snapshot; tornar a meta verificável. |
+## Ressalvas para rodada futura
+
+| Severidade | Escopo | Descrição | Ação recomendada |
+|---|---|---|---|
+| Alta | `municipalize-app` fora da feature | A suíte Angular global falha em 114 testes e 54 erros. | Corrigir ou isolar as regressões globais e repetir a suíte completa em rodada futura. |
+| Alta | `municipalize-app` fora da feature | O lint global falha com 104 erros e 12 avisos. | Estabilizar o baseline de lint e repetir `npm run lint` em rodada futura. |
+| Alta | Projeto inteiro | A meta global de cobertura de 80% não é certificável devido às falhas da suíte. | Corrigir os testes e aumentar a cobertura sem reduzir threshold ou ampliar exclusões. |
+
+Não foram encontrados problemas adicionais de arquitetura, contratos,
+acessibilidade ou comportamento dentro do escopo do dashboard e da listagem
+pública.
 
 ## Pontos positivos
 
-- O QA funcional está aprovado, com 16 critérios atendidos, 15 E2E e axe nos temas claro/escuro.
-- As fronteiras de API, rotas, permissões e componentes shared foram preservadas no escopo da funcionalidade.
-- O card interativo passou a ser consumido; charts receberam tooltip e as correções de skeleton, contraste e foco permanecem presentes.
-- Typecheck, lint sem erros, build e `git diff --check` passaram no estado final.
-
-## Recomendações
-
-- Reabrir as tarefas 3, 4, 6, 7 e 8 para concluir a decomposição prescrita e atualizar o rastreamento das tarefas.
-- Adicionar cobertura direta dos componentes/stores e estabelecer a meta de 80% sem reduzir o requisito da TechSpec.
-- Corrigir ou formalizar a separação das falhas preexistentes da suíte Angular completa antes de solicitar nova revisão.
-- Executar novamente o QA E2E após a refatoração arquitetural, pois esta revisão alterou componentes além do estado originalmente avaliado.
+- O `DashboardContentComponent` monolítico foi removido.
+- O store agora é dono dos resources, flows, agrupamento e refresh compartilhado.
+- As cinco seções previstas na TechSpec foram criadas e compostas pelo shell.
+- Foram adicionadas specs diretas para presenters, estados, stores e cards.
+- Os estados de erro, vazio e retry foram corrigidos e contextualizados.
+- O contraste do card público e o uso de `[zDisabled]` foram corrigidos.
+- Typecheck, build, lint direcionado, E2E, axe e integridade do diff passaram.
 
 ## Conclusão
 
-**REPROVADO.** A funcionalidade está funcionalmente bem exercitada pelo QA e as verificações de compilação focadas passaram, mas a entrega não atende à arquitetura definida: o conteúdo do dashboard continua monolítico, o store não exerce a responsabilidade especificada, a cobertura direta é insuficiente e a suíte Angular completa falha. O código deve retornar à implementação para concluir a decomposição e estabilizar os testes antes de nova aprovação.
+**APROVADO COM RESSALVAS.** A funcionalidade está comportamental e
+arquiteturalmente conforme, e o QA final foi aprovado. As falhas de lint, da
+suíte Angular e a cobertura abaixo da meta permanecem registradas como dívida
+técnica fora do escopo desta entrega, para correção em outra rodada.

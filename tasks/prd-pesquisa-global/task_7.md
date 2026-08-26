@@ -29,11 +29,11 @@ Foram lidos o `AGENTS.md` local, as rules globais e todas as regras frontend apl
 
 ## Subtarefas
 
-- [ ] 7.1 Implementar repository HTTP e usecases de busca de dados e navegação.
-- [ ] 7.2 Implementar cache, fingerprint, TTL, LRU, in-flight, limpeza e recentes.
-- [ ] 7.3 Implementar store com Signals, computed, debounce, switchMap e retry.
-- [ ] 7.4 Criar o componente Command com grupos, mensagens, teclado e seleção.
-- [ ] 7.5 Integrar o acionador ao cabeçalho do `private-layout` e limpar o estado ao fechar/selecionar.
+- [x] 7.1 Implementar repository HTTP e usecases de busca de dados e navegação.
+- [x] 7.2 Implementar cache, fingerprint, TTL, LRU, in-flight, limpeza e recentes.
+- [x] 7.3 Implementar store com Signals, computed, debounce, switchMap e retry.
+- [x] 7.4 Criar o componente Command com grupos, mensagens, teclado e seleção.
+- [x] 7.5 Integrar o acionador ao cabeçalho do `private-layout` e limpar o estado ao fechar/selecionar.
 
 ## Detalhes de implementação
 
@@ -62,14 +62,14 @@ Consultar `techspec.md`, seções “Modelos do frontend”, “Cache e ciclo de
 
 ### Testes de unidade
 
-- [ ] TU-14 — cache TTL, LRU, MRU, fingerprint, clear, erro e cancelamento.
-- [ ] TU-15 — compartilhamento in-flight e liberação após sucesso, erro ou cancelamento.
-- [ ] TU-16 — store em 299/300 ms, mínimo, switchMap, retry e falha parcial.
-- [ ] TU-17 — repository HTTP, query params, mapeamento e cancelamento.
+- [x] TU-14 — cache TTL, LRU, MRU, fingerprint, clear, erro e cancelamento.
+- [x] TU-15 — compartilhamento in-flight e liberação após sucesso, erro ou cancelamento.
+- [x] TU-16 — store em 299/300 ms, mínimo, switchMap, retry e falha parcial.
+- [x] TU-17 — repository HTTP, query params, mapeamento e cancelamento.
 
 ### Testes de integração
 
-- [ ] TI-14 — TestBed com Command/Dialog reais, acionador, estados e tráfego único.
+- [x] TI-14 — TestBed com Command/Dialog reais, acionador, estados e tráfego único.
 
 ### Testes E2E
 
@@ -84,3 +84,13 @@ Consultar `techspec.md`, seções “Modelos do frontend”, “Cache e ciclo de
 - `municipalize-app/src/app/aplication/global-search/*Usecase.ts`
 - `municipalize-app/src/app/presenter/layouts/private-layout/*`
 - `municipalize-app/src/app/domain/entities/GlobalSearch.ts`
+
+## Validação executada
+
+- `npx vitest run` com configuração temporária de aliases e inicialização Angular, restrito às suítes da tarefa: 11 testes passaram em 5 arquivos, cobrindo cache, store, repository HTTP, usecase e acionador/atalho.
+- `npx tsc --noEmit --project tsconfig.app.json --pretty false`: aprovado.
+- `npm run build`: aprovado; permanecem apenas avisos CommonJS preexistentes.
+- `git diff --check`: aprovado.
+- `npm run lint`: bloqueado antes da análise porque o repositório não possui configuração ESLint resolvível.
+- `npm test`: bloqueado antes da execução das suítes selecionadas por specs preexistentes incompatíveis com o runner Vitest (`jasmine`, `toBeTrue`/`toBeFalse` e outros matchers). Os testes novos foram executados isoladamente com Vitest; a configuração temporária não foi versionada.
+- E2E-01–E2E-03 permanecem para a Tarefa 9, pois o repositório ainda não possui configuração Playwright/E2E conforme as regras do frontend.

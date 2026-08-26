@@ -48,6 +48,12 @@ reduza segurança, isolamento entre tenants ou proteção de dados.
   e produz evidências.
 - [`executar-review`](skills/executar-review/SKILL.md): executa a revisão final do
   código já validado pelo QA.
+- [`iniciar-tarefa-paralela`](skills/iniciar-tarefa-paralela/SKILL.md): prepara
+  uma sessão isolada com worktrees coordenados ou cria a branch da tarefa no
+  workspace atual e nos projetos ativos.
+- [`encerrar-tarefa`](skills/encerrar-tarefa/SKILL.md): revisa, faz commit e
+  push de uma tarefa com confirmação explícita e encerra worktrees quando
+  aplicável.
 
 ## Fluxo padrão
 
@@ -62,6 +68,14 @@ criar-prd
 
 O review é a última etapa. Uma funcionalidade somente está concluída depois do
 QA aprovado e do review final aprovado.
+
+## Documentação do processo
+
+- [`README.md`](../README.md): visão geral do workspace e início rápido.
+- [`docs/spec-driven-development.md`](../docs/spec-driven-development.md): guia
+  completo, etapa por etapa, do Spec Driven Development.
+- [`docs/parallel-work.md`](../docs/parallel-work.md): uso de branches,
+  worktrees, manifestos, publicação e encerramento.
 
 ## Escopo dos artefatos
 

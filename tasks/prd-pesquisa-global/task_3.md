@@ -28,10 +28,10 @@ Foram lidos os `AGENTS.md` dos projetos afetados, as rules globais e as regras d
 
 ## Subtarefas
 
-- [ ] 3.1 Criar enums, records, request/response e comando no `ms-main`.
-- [ ] 3.2 Criar entidades de domínio, contratos de repository e usecase no `municipalize-app`.
-- [ ] 3.3 Implementar mapeamentos seguros e testes de contrato/serialização.
-- [ ] 3.4 Documentar o contrato público e o envelope de erro sem expor detalhes internos.
+- [x] 3.1 Criar enums, records, request/response e comando no `ms-main`.
+- [x] 3.2 Criar entidades de domínio, contratos de repository e usecase no `municipalize-app`.
+- [x] 3.3 Implementar mapeamentos seguros e testes de contrato/serialização.
+- [x] 3.4 Documentar o contrato público e o envelope de erro sem expor detalhes internos.
 
 ## Detalhes de implementação
 
@@ -50,12 +50,20 @@ Consultar `techspec.md`, seções “Principais interfaces”, “Modelos de dad
 
 ### Testes de unidade
 
-- [ ] TU-06 — validação de termo, página, limite e tipos desconhecidos.
-- [ ] TU-07 — união discriminada e bloqueio de campos sensíveis.
+- [x] TU-06 — validação de termo, página, limite e tipos desconhecidos.
+- [x] TU-07 — união discriminada e bloqueio de campos sensíveis.
 
 ### Testes de integração
 
-- [ ] TI-04 — contrato REST de requisição, resposta e envelope de erro.
+- [x] TI-04 — contrato REST de requisição, resposta e envelope de erro.
+
+### Validação executada
+
+No `ms-main`, `./mvnw -Dtest=GlobalSearchCommandTest,GlobalSearchResponseSerializationTest test` passou com 5 testes. O conjunto cobre normalização, limites, enum desconhecido, união discriminada, omissão de campos nulos/sensíveis e envelope de erro.
+
+No `municipalize-app`, `npm run build` passou. Os testes isolados `GlobalSearchResponseMapper.spec.ts` (2 testes) e `SearchGlobalDataUsecase.spec.ts` (1 teste) passaram com Vitest e um harness temporário removido ao final. `npm test` não conseguiu compilar a suíte global por falhas preexistentes em specs legados incompatíveis com Vitest/Jasmine (`toBeTrue`, `jasmine`, `spyOn` e `expectAsync`). `npm run lint` também está bloqueado pela ausência de configuração ESLint no repositório. Essas limitações ficam registradas para a estabilização da suíte na tarefa 9.
+
+O endpoint HTTP ainda não existe nesta etapa; a validação TI-04 comprova os DTOs, a serialização e o envelope público. O wiring REST e a autenticação serão exercitados quando a tarefa 5 implementar o endpoint.
 
 ## Arquivos relevantes
 

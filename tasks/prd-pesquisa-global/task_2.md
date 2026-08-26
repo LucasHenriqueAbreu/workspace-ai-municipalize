@@ -27,10 +27,10 @@ Foram lidos o `AGENTS.md` local, as rules globais e as regras frontend aplicáve
 
 ## Subtarefas
 
-- [ ] 2.1 Evoluir `PRIVATE_ROUTE_CONFIGS` com o modelo de catálogo pesquisável.
-- [ ] 2.2 Criar helper de metadados para `privateRoutes`, menus e permissões.
-- [ ] 2.3 Associar intenções como cadastrar, consultar, editar e acompanhar aos destinos existentes.
-- [ ] 2.4 Criar teste estrutural de IDs, rotas, duplicidades e autorização.
+- [x] 2.1 Evoluir `PRIVATE_ROUTE_CONFIGS` com o modelo de catálogo pesquisável.
+- [x] 2.2 Criar helper de metadados para `privateRoutes`, menus e permissões.
+- [x] 2.3 Associar intenções como cadastrar, consultar, editar e acompanhar aos destinos existentes.
+- [x] 2.4 Criar teste estrutural de IDs, rotas, duplicidades e autorização.
 
 ## Detalhes de implementação
 
@@ -49,12 +49,18 @@ Consultar `techspec.md`, seções “Catálogo privado”, “Catálogo de naveg
 
 ### Testes de unidade
 
-- [ ] TU-04 — normalização, sinônimos, intenções e score do catálogo.
-- [ ] TU-05 — IDs únicos, rotas reais e filtragem por autorização.
+- [x] TU-04 — normalização, sinônimos, intenções e score do catálogo.
+- [x] TU-05 — IDs únicos, rotas reais e filtragem por autorização.
 
 ### Testes de integração
 
-- [ ] TI-03 — consistência entre catálogo, menu e guards.
+- [x] TI-03 — consistência entre catálogo, menu e guards.
+
+### Validação executada
+
+Os testes focados do catálogo, menu e guard executaram 19 testes, sem falhas, via Vitest com `jsdom`. O build Angular foi concluído com sucesso.
+
+`npm test` permanece bloqueado por falhas preexistentes na compilação de specs incompatíveis com Vitest/Jasmine (`toBeTrue`, `jasmine`, `spyOn` e outros), inclusive um spec com sintaxe inválida. `npm run lint` permanece bloqueado porque o repositório não possui arquivo de configuração ESLint. Essas falhas não foram introduzidas pela tarefa.
 
 ## Arquivos relevantes
 

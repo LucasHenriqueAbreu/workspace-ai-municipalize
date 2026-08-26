@@ -1,0 +1,4 @@
+interface:
+  display_name: "Iniciar tarefa paralela"
+  short_description: "Cria branches ou sessões isoladas para tarefas"
+  default_prompt: "Use $iniciar-tarefa-paralela para preparar branches ou uma sessão isolada de desenvolvimento para uma tarefa."

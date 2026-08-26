@@ -28,10 +28,10 @@ Foram lidos os `AGENTS.md` dos dois projetos, as rules globais e as regras locai
 
 ## Subtarefas
 
-- [ ] 6.1 Implementar endpoint, usecase e conteúdo read-only de detalhe de usuário.
-- [ ] 6.2 Adaptar os quatro detalhes existentes aos contratos de erro e cancelamento necessários.
-- [ ] 6.3 Extrair conteúdos reutilizáveis de projeto e emenda sem duplicar regras.
-- [ ] 6.4 Criar fixtures de contrato para comparar listagem, busca e detalhe.
+- [x] 6.1 Implementar endpoint, usecase e conteúdo read-only de detalhe de usuário.
+- [x] 6.2 Adaptar os quatro detalhes existentes aos contratos de erro e cancelamento necessários.
+- [x] 6.3 Extrair conteúdos reutilizáveis de projeto e emenda sem duplicar regras.
+- [x] 6.4 Criar fixtures de contrato para comparar listagem, busca e detalhe.
 
 ## Detalhes de implementação
 
@@ -51,13 +51,13 @@ Consultar `techspec.md`, seções “Endpoints de detalhe”, “Matriz canônic
 
 ### Testes de unidade
 
-- [ ] TU-12 — registro de detalhe exhaustivo para os cinco tipos.
-- [ ] TU-13 — mapeamento de 403, 404, erro recuperável e ausência de campos protegidos.
+- [x] TU-12 — registro de detalhe exhaustivo para os cinco tipos.
+- [x] TU-13 — mapeamento de 403, 404, erro recuperável e ausência de campos protegidos.
 
 ### Testes de integração
 
-- [ ] TI-12 — GetById autorizado por tipo e tenant.
-- [ ] TI-13 — regressão de consumidores dos detalhes existentes.
+- [x] TI-12 — GetById autorizado por tipo e tenant.
+- [x] TI-13 — regressão de consumidores dos detalhes existentes.
 
 ## Arquivos relevantes
 
@@ -65,3 +65,13 @@ Consultar `techspec.md`, seções “Endpoints de detalhe”, “Matriz canônic
 - `municipalize-app/src/app/aplication/user/GetUserByIdUsecase.ts`
 - Repositories e usecases GetById existentes do `municipalize-app`.
 - Componentes de detalhe de projeto e emenda.
+
+## Validação executada
+
+- `./mvnw -Dtest=UserResourceAccessTest,AmendmentServiceEventAndAuthorizationTest,ProjectServiceDetailsVisibilityTest,CouncillorServicePrivacyTest,ReadAccessPolicyTest,ReadAccessNegativeTest,ReadAccessCharacterizationTest test`: aprovado; 51 testes passaram.
+- `./mvnw -DskipTests package`: aprovado.
+- `npx tsc --noEmit --project tsconfig.app.json --pretty false`: aprovado.
+- `npm run build`: aprovado, com os avisos preexistentes de dependências CommonJS.
+- `npm run lint`: não executável porque o repositório não possui configuração ESLint resolvível.
+- `npx ng test --no-watch --no-progress --include ...`: bloqueado antes da execução pelos specs preexistentes incompatíveis com o runner Vitest (`jasmine`, `toBeTrue`/`toBeFalse` e outros matchers).
+- `./mvnw test`: interrompido após o Testcontainer SQL Server falhar repetidamente no prelogin por incompatibilidade da imagem `amd64` com o host `arm64`; os containers iniciados por essa execução foram encerrados.

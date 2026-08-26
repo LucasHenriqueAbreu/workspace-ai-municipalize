@@ -1,0 +1,21 @@
+{
+  "session_prefix": "workspace",
+  "branch_prefix": "agent",
+  "projects": [
+    {
+      "name": "municipalize-app",
+      "path": "municipalize-app",
+      "active": true
+    },
+    {
+      "name": "ms-main",
+      "path": "ms-main",
+      "active": true
+    },
+    {
+      "name": "municipalize-admin-app",
+      "path": "municipalize-admin-app",
+      "active": true
+    }
+  ]
+}

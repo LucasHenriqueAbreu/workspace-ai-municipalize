@@ -1,0 +1,4 @@
+interface:
+  display_name: "Encerrar tarefa"
+  short_description: "Faz commit, push e encerra worktrees com confirmação"
+  default_prompt: "Use $encerrar-tarefa para revisar e publicar uma tarefa concluída."

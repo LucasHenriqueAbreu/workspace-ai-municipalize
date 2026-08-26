@@ -26,10 +26,10 @@ Foram lidos o `AGENTS.md` local e as rules globais e locais aplicáveis. A migra
 
 ## Subtarefas
 
-- [ ] 4.1 Inspecionar o estado vigente e escolher a próxima versão Flyway.
-- [ ] 4.2 Criar catálogo, colunas, índices e condições de população/reconstrução.
-- [ ] 4.3 Implementar a validação operacional de disponibilidade e compatibilidade.
-- [ ] 4.4 Criar suíte SQL Server com execução a partir do estado anterior e repetição segura quando aplicável.
+- [x] 4.1 Inspecionar o estado vigente e escolher a próxima versão Flyway.
+- [x] 4.2 Criar catálogo, colunas, índices e condições de população/reconstrução.
+- [x] 4.3 Implementar a validação operacional de disponibilidade e compatibilidade.
+- [x] 4.4 Criar suíte SQL Server com execução a partir do estado anterior e repetição segura quando aplicável.
 
 ## Detalhes de implementação
 
@@ -47,13 +47,22 @@ Consultar `techspec.md`, seções “SQL Server e Flyway”, “Ranking e dedupl
 
 ### Testes de unidade
 
-- [ ] TU-08 — normalização textual, códigos, aspas, operadores e limites.
+- [x] TU-08 — normalização textual, códigos, aspas, operadores e limites.
 
 ### Testes de integração
 
-- [ ] TI-05 — migration incremental, preservação de dados e população do catálogo.
-- [ ] TI-06 — FTS real com idioma, acento, prefixo, múltiplos termos, SAPL e CNPJ.
-- [ ] TI-07 — FTS ausente/incompatível sem fallback silencioso.
+- [x] TI-05 — migration incremental, preservação de dados e população do catálogo.
+- [x] TI-06 — FTS real com idioma, acento, prefixo, múltiplos termos, SAPL e CNPJ.
+- [x] TI-07 — FTS ausente/incompatível sem fallback silencioso.
+
+## Validação executada
+
+- Criada `V1.0.149__extend_fulltext_for_global_search.sql` a partir do estado `1.0.148`, sem alterar as migrations 134, 144 ou 145. A migration falha com `THROW` quando o FTS, o schema, o catálogo, a chave unique ou os índices esperados são incompatíveis.
+- Criado `scripts/verify-global-search-fulltext.sql`, que deve ser executado uma vez por banco tenant. Ele exige FTS instalado, `CatalogoBusca` accent-insensitive, `PopulateStatus = 0`, idioma 1046, `CHANGE_TRACKING = AUTO`, `STOPLIST OFF`, dez colunas obrigatórias e chaves unique de uma coluna.
+- No SQL Server 2022 com `Dockerfile.mssql`, a migration foi aplicada no `db-main` e no `db-main-cliente1`; a repetição no `db-main-cliente1` foi bem-sucedida. A verificação passou após a população assíncrona concluir.
+- Consultas canário passaram: prefixo com acento e múltiplos termos em `partido`, prefixo SAPL em `emenda` e CNPJ formatado normalizado pelo índice convencional de `instituicao`. A query canário de SAPL/CNPJ também é executada pelo script sem depender de dados específicos.
+- `./mvnw test -Dtest=GlobalSearchCommandTest,GlobalSearchResponseSerializationTest` passou com 6 testes; `./mvnw package -DskipTests` passou.
+- `./mvnw verify -Dit.test=GlobalSearchFullTextMigrationIT` não foi concluído porque o ambiente de DevServices iniciou um SQL Server genérico sem o pacote FTS e ficou em preflight. A validação real foi executada diretamente no container configurado por `Dockerfile.mssql`; a suíte global Maven permanece dependente dessa configuração de infraestrutura.
 
 ## Arquivos relevantes
 

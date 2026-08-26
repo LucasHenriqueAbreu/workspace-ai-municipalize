@@ -26,10 +26,10 @@ Foram lidos o `AGENTS.md` local, as rules globais e as regras referenciadas pelo
 
 ## Subtarefas
 
-- [ ] 1.1 Criar fixtures de caracterização das listagens e dos GetById atuais.
-- [ ] 1.2 Extrair serviços de política de leitura por tipo e preservar consumidores existentes.
-- [ ] 1.3 Implementar a resolução autenticada não provisionadora do usuário local.
-- [ ] 1.4 Adicionar testes negativos de tenant, papel, função, vínculo e registro inativo.
+- [x] 1.1 Criar fixtures de caracterização das listagens e dos GetById atuais.
+- [x] 1.2 Extrair serviços de política de leitura por tipo e preservar consumidores existentes.
+- [x] 1.3 Implementar a resolução autenticada não provisionadora do usuário local.
+- [x] 1.4 Adicionar testes negativos de tenant, papel, função, vínculo e registro inativo.
 
 ## Detalhes de implementação
 
@@ -51,14 +51,23 @@ Consultar `techspec.md`, seções “Matriz canônica de visibilidade”, “Aut
 
 ### Testes de unidade
 
-- [ ] TU-01 — autorização por tipo, papel, função e vínculo.
-- [ ] TU-02 — resolução local ativa sem provisionamento.
-- [ ] TU-03 — políticas de busca e detalhe com fixtures equivalentes.
+- [x] TU-01 — autorização por tipo, papel, função e vínculo.
+- [x] TU-02 — resolução local ativa sem provisionamento.
+- [x] TU-03 — políticas de busca e detalhe com fixtures equivalentes.
 
 ### Testes de integração
 
-- [ ] TI-01 — regressão das listagens e GetById canônicos.
-- [ ] TI-02 — isolamento entre tenants e exclusão de registros inacessíveis.
+- [x] TI-01 — regressão das listagens e GetById canônicos.
+- [x] TI-02 — isolamento entre tenants e exclusão de registros inacessíveis.
+
+### Validação executada
+
+O conjunto focado de regressão executou 70 testes, sem falhas ou erros, e o
+build de produção foi concluído com sucesso. A inicialização de
+`UserImplTest` no ambiente local ainda depende de uma imagem SQL Server
+amd64 sem Full-Text Search e falha na migration legada `1.0.144`; esse é um
+bloqueio de infraestrutura do ambiente de testes, não uma falha das
+políticas implementadas nesta tarefa.
 
 ## Arquivos relevantes
 

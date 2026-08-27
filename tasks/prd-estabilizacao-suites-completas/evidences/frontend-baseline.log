@@ -1,0 +1,21 @@
+executedAt=2026-08-26T20:29:31-03:00
+project=municipalize-app
+command=npm test -- --watch=false
+environmentStatus=ready
+environmentWarnings=Node.js v23.11.0 (versao impar, nao-LTS); setupFiles ausente do programa TypeScript
+result=failed
+testFiles=178
+testFilesPassed=125
+testFilesFailed=53
+tests=428
+testsPassed=312
+testsFailed=116
+errors=54
+coverage=not-generated
+duration=35.47s
+failureGroups=fixture/TestBed/inputs; Jasmine/Vitest compatibility; test contracts; non-executable spec files; async/environment fixture
+sensitiveData=none
+
+The complete runner output was collected outside the repository and reduced to
+the counts, paths and signatures in suite-baseline.md. Tokens, cookies,
+authorization headers, connection strings and municipal data were omitted.

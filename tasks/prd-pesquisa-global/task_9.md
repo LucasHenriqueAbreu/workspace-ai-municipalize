@@ -30,10 +30,10 @@ Foram lidos os `AGENTS.md` dos projetos, as rules globais e as regras de ambient
 ## Subtarefas
 
 - [ ] 9.1 Completar testes integrados frontend/backend e cenários E2E no navegador disponível.
-- [ ] 9.2 Executar auditoria de acessibilidade WCAG 2.1 AA e validar responsividade.
+- [x] 9.2 Executar auditoria de acessibilidade WCAG 2.1 AA e validar responsividade.
 - [ ] 9.3 Configurar/verificar thresholds de cobertura nos dois projetos.
 - [ ] 9.4 Executar lint, testes, verify, packages e builds definidos pelos projetos.
-- [ ] 9.5 Executar benchmark e corrigir problemas de performance ou regressões.
+- [x] 9.5 Executar benchmark e corrigir problemas de performance ou regressões.
 
 ## Detalhes de implementação
 
@@ -47,15 +47,15 @@ Consultar `techspec.md`, seções “Testes de integração”, “Testes E2E”
 
 ### Testes de integração
 
-- [ ] TI-16 — contrato e tráfego ponta a ponta sem endpoints paralelos.
+- [x] TI-16 — contrato e tráfego ponta a ponta sem endpoints paralelos.
 - [ ] TI-17 — cobertura, lint, typecheck, verify, package e build dos dois projetos.
-- [ ] TI-18 — benchmark p95 com volume representativo.
+- [x] TI-18 — benchmark p95 com volume representativo.
 
 ### Testes E2E
 
-- [ ] E2E-07 — cenários desktop/mobile, teclado, foco, rolagem e responsividade.
-- [ ] E2E-08 — auditoria WCAG 2.1 AA sem violações críticas ou sérias da feature.
-- [ ] E2E-09 — fluxo completo de pesquisa, seleção, detalhe, cache, erro e recentes.
+- [x] E2E-07 — cenários desktop/mobile, teclado, foco, rolagem e responsividade.
+- [x] E2E-08 — auditoria WCAG 2.1 AA sem violações críticas ou sérias da feature.
+- [x] E2E-09 — fluxo completo de pesquisa, seleção, detalhe, cache, erro e recentes.
 
 ## Arquivos relevantes
 

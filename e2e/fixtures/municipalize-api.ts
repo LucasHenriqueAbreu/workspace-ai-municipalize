@@ -99,6 +99,50 @@ const benchBreakdown = {
   subfunctions: [],
 };
 
+const globalSearchProject = {
+  id: 100,
+  name: 'Projeto Saúde Básica',
+  description: 'Ampliação da unidade de saúde do município com atendimento acessível.',
+  status: 'APPROVED',
+  requestedAmount: 250_000,
+  createdAt: '2026-02-10T12:00:00Z',
+  creator: {
+    id: 420,
+    firstName: 'Administrador',
+    lastName: 'Sintético',
+    fullName: 'Administrador Sintético',
+    email: 'admin@example.invalid',
+    createdAt: '2026-01-01T00:00:00Z',
+    roles: ['ADMIN'],
+  },
+  hasAmendment: false,
+};
+
+const globalSearchResponse = {
+  normalizedTerm: 'projeto',
+  results: [
+    {
+      resourceId: globalSearchProject.id,
+      origin: 'DATA',
+      type: 'PROJECT',
+      group: 'Projetos',
+      title: globalSearchProject.name,
+      secondaryText: 'Instituição Sintética',
+      description: globalSearchProject.description,
+      icon: 'PROJECT',
+      score: 1,
+      match: { kind: 'DIRECT', field: 'PROJECT_NAME', displayText: globalSearchProject.name },
+      metadata: { kind: 'PROJECT', status: globalSearchProject.status, institutionName: 'Instituição Sintética' },
+    },
+  ],
+  total: 1,
+  countsByType: [{ type: 'PROJECT', count: 1 }],
+  page: 0,
+  pageSize: 20,
+  totalPages: 1,
+  hasMore: false,
+};
+
 const json = (body: unknown, status = 200) => ({
   status,
   contentType: 'application/json',
@@ -111,10 +155,16 @@ export interface MunicipalizeFixtureOptions {
   readonly emptyCouncillorAggregation?: boolean;
   readonly failCouncillorAggregationOnce?: boolean;
   readonly delayCouncillorAggregationMs?: number;
+  readonly globalSearch?: boolean;
+  readonly failGlobalSearchOnce?: boolean;
+  readonly globalSearchDetailStatus?: 403 | 404 | 503;
+  readonly recoverGlobalSearchDetailOnce?: boolean;
 }
 
 export async function installMunicipalizeFixtures(page: Page, options: MunicipalizeFixtureOptions = {}): Promise<void> {
   let councillorAggregationFailures = options.failCouncillorAggregationOnce ? 1 : 0;
+  let globalSearchFailures = options.failGlobalSearchOnce ? 1 : 0;
+  let globalSearchDetailFailures = options.recoverGlobalSearchDetailOnce ? 1 : 0;
   const authenticatedRoles = options.authenticatedRoles ?? (options.admin ? ['ADMIN'] : undefined);
 
   await page.route('**/api/public/customers', route =>
@@ -181,6 +231,26 @@ export async function installMunicipalizeFixtures(page: Page, options: Municipal
           number: 0,
         }),
       );
+      return;
+    }
+
+    if (url.pathname.endsWith('/global-search') && options.globalSearch) {
+      if (globalSearchFailures > 0) {
+        globalSearchFailures -= 1;
+        await route.fulfill(json({ error: 'Service unavailable' }, 503));
+        return;
+      }
+      await route.fulfill(json(globalSearchResponse));
+      return;
+    }
+
+    if (options.globalSearch && url.pathname.endsWith('/projects/100')) {
+      if (options.globalSearchDetailStatus && (globalSearchDetailFailures > 0 || !options.recoverGlobalSearchDetailOnce)) {
+        globalSearchDetailFailures -= 1;
+        await route.fulfill(json({ error: 'Synthetic detail error' }, options.globalSearchDetailStatus));
+        return;
+      }
+      await route.fulfill(json(globalSearchProject));
       return;
     }
 

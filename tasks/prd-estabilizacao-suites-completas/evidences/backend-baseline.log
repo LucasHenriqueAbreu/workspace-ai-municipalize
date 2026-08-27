@@ -1,0 +1,19 @@
+executedAt=2026-08-26T20:29:14-03:00/2026-08-26T20:29:27-03:00
+project=ms-main
+command=./mvnw test
+environmentStatus=blocked
+environmentWarnings=JDK 21.0.6 detected; project requires JDK 17
+dockerProbe=CLI reports client/server 29.7.2; Testcontainers could not find a valid Docker environment
+result=blocked
+tests=278
+failures=0
+errors=1
+skipped=10
+blockingTest=br.com.municipalize.impl.UserImplTest.deveBuscarPorNomeComFiltroDeBusca
+blockingCause=Quarkus Dev Services could not start the SQL Server container because Testcontainers could not access Docker
+
+Historical Failsafe evidence already present in the project at
+target/failsafe-reports/failsafe-summary.xml records the seven initially mapped
+authentication/authorization failures: AuthResourceIT (3), CategoryResourceIT
+setupToken (1), and PublicCouncillorProfileResourceIT (3). The report was
+summarized without copying its environment properties or sensitive values.

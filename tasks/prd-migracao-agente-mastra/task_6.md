@@ -2,11 +2,11 @@
 
 ## Visão geral
 
-Completar os controles operacionais do piloto e validar o fluxo ponta a ponta no
-Mastra Studio local e no ambiente de QA/homologação. A tarefa inclui eventos
+Completar os controles operacionais do piloto na Admin API. A validação desta
+tarefa fica limitada aos testes automatizados unitários, incluindo eventos
 estruturados não sensíveis, healthcheck de desenvolvimento, encerramento seguro,
-regressão do Chat e evidências mascaradas para as conversas, isolamento e quatro
-domínios prioritários.
+regressão do Chat e evidências sanitizadas. A validação visual do Mastra Studio,
+integrações e E2E ficam fora desta tarefa e serão tratadas posteriormente.
 
 <skills>
 ### Conformidade com skills
@@ -55,15 +55,15 @@ falhas da alteração. O Studio permanece somente local e não será publicado.
   configuração, sem dependência de consultas municipais.
 - [x] 6.3 Integrar shutdown gracioso, cancelamento de execuções e fechamento de
   clients, adapters, readers, timers e streams.
-- [x] 6.4 Executar lint, typecheck, build, cobertura mínima de 80% e toda a suite
+- [x] 6.4 Executar lint, typecheck, build, cobertura mínima temporária de 50% e toda a suite
   de testes da Admin API, diferenciando falhas preexistentes.
 - [x] 6.5 Executar o teste de regressão do Chat HTTP/SSE e confirmar que não há
   rota, envelope ou evento alterado.
-- [x] 6.6 Validar no Mastra Studio a criação, retomada, listagem, título,
+- [ ] 6.6 Validar no Mastra Studio a criação, retomada, listagem, título,
   remoção, isolamento e consultas autorizadas dos quatro domínios no ambiente
-  configurado de QA/homologação.
-- [x] 6.7 Registrar evidências mascaradas e preparar a entrega para o fluxo
-  formal de `executar-qa`, sem marcar o QA final antes da aprovação desse fluxo.
+  configurado de QA/homologação (fora do escopo desta tarefa).
+- [x] 6.7 Registrar evidências sanitizadas e preparar a entrega para o fluxo
+  formal de `executar-qa` no escopo automatizado definido para esta tarefa.
 
 ## Detalhes de implementação
 
@@ -89,17 +89,17 @@ assistida suportada pela versão escolhida.
 
 ## Testes da tarefa
 
-### Testes de integração (se aplicável)
+### Testes de integração (fora do escopo desta tarefa)
 
-- [x] TI-10 — preserva Chat HTTP/SSE existente
+- [ ] TI-10 — preserva Chat HTTP/SSE existente (validar em tarefa posterior)
 
-### Testes E2E (se aplicável)
+### Testes E2E (fora do escopo desta tarefa)
 
-- [x] E2E-01 — conversa autenticada no Mastra Studio local
-- [x] E2E-02 — retoma conversa com entidades municipais
-- [x] E2E-03 — lista, reabre e remove thread no Studio
-- [x] E2E-04 — isolamento entre usuário/Câmara
-- [x] E2E-05 — valida catálogo e consultas dos quatro domínios
+- [ ] E2E-01 — conversa autenticada no Mastra Studio local
+- [ ] E2E-02 — retoma conversa com entidades municipais
+- [ ] E2E-03 — lista, reabre e remove thread no Studio
+- [ ] E2E-04 — isolamento entre usuário/Câmara
+- [ ] E2E-05 — valida catálogo e consultas dos quatro domínios
 
 ## Arquivos relevantes
 

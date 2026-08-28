@@ -39,14 +39,14 @@ Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 7.1 Procurar consumidores em código, frontend conhecido, jobs, CI,
+- [x] 7.1 Procurar consumidores em código, frontend conhecido, jobs, CI,
   deploy, DNS, secrets e documentação antes das exclusões.
-- [ ] 7.2 Remover controller, transporte, servidor, tokens, erros, tipos e
+- [x] 7.2 Remover controller, transporte, servidor, tokens, erros, tipos e
   testes exclusivos da árvore MCP.
-- [ ] 7.3 Remover a dependência do SDK e atualizar o lockfile pelo npm.
-- [ ] 7.4 Remover configuração e nomenclatura MCP de `.env.example`, loaders,
+- [x] 7.3 Remover a dependência do SDK e atualizar o lockfile pelo npm.
+- [x] 7.4 Remover configuração e nomenclatura MCP de `.env.example`, loaders,
   docs, workflow e compose, migrando para os nomes neutros coordenados.
-- [ ] 7.5 Implementar a verificação estática de ausência em fonte, dependências,
+- [x] 7.5 Implementar a verificação estática de ausência em fonte, dependências,
   configuração e artefato.
 
 ## Detalhes de implementação
@@ -66,7 +66,7 @@ histórica deve ser apenas confirmada e removida dos projetos ativos.
 
 ### Testes de unidade
 
-- [ ] TU-10 — verifica a ausência estática de MCP.
+- [x] TU-10 — verifica a ausência estática do transporte legado.
 
 ### Testes de integração
 

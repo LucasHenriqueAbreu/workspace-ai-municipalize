@@ -39,10 +39,10 @@ services:
       LITELLM_API_KEY: e2e-not-configured
       LITELLM_ADMIN_BASE_URL: http://litellm:4000
       LITELLM_MASTER_KEY: e2e-not-configured
-      MCP_KEYCLOAK_ISSUER_URL: http://keycloak:8080/realms/quarkus-realm
-      MCP_KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/quarkus-realm/protocol/openid-connect/certs
-      MCP_KEYCLOAK_AUDIENCE: backend-service
-      MCP_KEYCLOAK_CLIENT_ID: municipalize-web
+      EXECUTION_IDENTITY_KEYCLOAK_ISSUER_URL: http://keycloak:8080/realms/quarkus-realm
+      EXECUTION_IDENTITY_KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/quarkus-realm/protocol/openid-connect/certs
+      EXECUTION_IDENTITY_KEYCLOAK_AUDIENCE: backend-service
+      EXECUTION_IDENTITY_KEYCLOAK_CLIENT_ID: municipalize-web
     ports:
       - "${E2E_ADMIN_API_PORT:-3200}:3000"
     depends_on:

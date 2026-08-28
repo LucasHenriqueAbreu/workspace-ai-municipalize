@@ -8,5 +8,5 @@
 - [x] 4.0 Construir o catálogo nativo e migrar as tools
 - [x] 5.0 Migrar resources e prompts para o AgentGuidanceModule
 - [x] 6.0 Adaptar AgentRuntime, Chat e Mastra
-- [ ] 7.0 Retirar completamente o MCP e atualizar a operação
+- [x] 7.0 Retirar completamente o transporte legado e atualizar a operação
 - [ ] 8.0 Executar integração QA, E2E e o gate final

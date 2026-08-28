@@ -43,15 +43,15 @@ Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 4.1 Criar contratos nativos de definição, execução, resultado, erro e
+- [x] 4.1 Criar contratos nativos de definição, execução, resultado, erro e
   metadados em `ToolsModule`.
-- [ ] 4.2 Adaptar policy e catálogo para `listEnabled()` e `execute()` com
+- [x] 4.2 Adaptar policy e catálogo para `listEnabled()` e `execute()` com
   validação Zod e ordem invariável de execução.
-- [ ] 4.3 Converter registradores, schemas, handlers, paginação e resultados de
+- [x] 4.3 Converter registradores, schemas, handlers, paginação e resultados de
   todos os domínios de `mcp/tools/**`.
-- [ ] 4.4 Conectar identidade e gateway somente por suas APIs públicas e passar
+- [x] 4.4 Conectar identidade e gateway somente por suas APIs públicas e passar
   contexto e `AbortSignal` explicitamente aos handlers.
-- [ ] 4.5 Comparar catálogo nativo com a caracterização e corrigir qualquer
+- [x] 4.5 Comparar catálogo nativo com a caracterização e corrigir qualquer
   diferença de nome, schema, política, resultado ou contagem.
 
 ## Detalhes de implementação
@@ -73,10 +73,10 @@ contexto de transporte, URL do consumidor ou HTTP para a própria Admin API.
 
 ### Testes de unidade
 
-- [ ] TU-01 — caracteriza o catálogo nativo completo.
-- [ ] TU-02 — aplica política antes de qualquer I/O.
-- [ ] TU-03 — executa tool de leitura com argumentos validados.
-- [ ] TU-04 — mantém classificação de conta/perfil sem confundir identidade.
+- [x] TU-01 — caracteriza o catálogo nativo completo.
+- [x] TU-02 — aplica política antes de qualquer I/O.
+- [x] TU-03 — executa tool de leitura com argumentos validados.
+- [x] TU-04 — mantém classificação de conta/perfil sem confundir identidade.
 
 ### Testes de integração
 

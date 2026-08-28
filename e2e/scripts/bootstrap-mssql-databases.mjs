@@ -3,7 +3,7 @@ import sql from 'mssql';
 const port = Number(process.env.E2E_MSSQL_PORT || '1433');
 const password = process.env.E2E_MSSQL_PASSWORD || 'MsProject@2025@';
 const databaseNames = ['db-main', 'db-main-cliente1', 'db-main-cliente2'];
-const maxAttempts = 120;
+const maxAttempts = 300;
 
 const connectionConfig = {
   server: process.env.E2E_MSSQL_HOST || 'localhost',

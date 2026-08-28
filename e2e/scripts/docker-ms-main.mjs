@@ -63,6 +63,8 @@ if (command === 'down') {
     E2E_BASE_URL: `http://localhost:${frontendPort}`,
     E2E_FRONTEND_PORT: String(frontendPort),
     E2E_BACKEND_PORT: String(backendPort),
+    E2E_MSSQL_PORT: String(mssqlPort),
+    E2E_KEYCLOAK_PORT: String(keycloakPort),
     E2E_KEYCLOAK_BASE_URL: `http://localhost:${keycloakPort}`,
     E2E_MSSQL_HOST: 'localhost',
     E2E_MSSQL_PORT: String(mssqlPort),

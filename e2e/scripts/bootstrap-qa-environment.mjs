@@ -220,12 +220,16 @@ const seedTenantUserAndDashboard = async (keycloakId) => {
         ELSE
         BEGIN
           UPDATE dbo.usuario
-          SET nome_completo = @fullName, id_keycloak = @keycloakId, status = 'ACTIVE', funcao = 'ADMIN'
+          SET nome_completo = @fullName, id_keycloak = @keycloakId, status = 'ACTIVE', funcao = 'TECNICO_PREFEITURA'
           WHERE id = @userId;
         END;
 
         IF NOT EXISTS (SELECT 1 FROM dbo.usuario_papeis WHERE usuario_id = @userId AND papel = 'ADMIN')
           INSERT INTO dbo.usuario_papeis (usuario_id, papel) VALUES (@userId, 'ADMIN');
+
+        UPDATE dbo.usuario
+        SET funcao = 'TECNICO_PREFEITURA'
+        WHERE id = @userId;
 
         DELETE FROM dbo.fato_vereador_dashboard WHERE snapshot_date = @snapshotDate AND vereador_id = 42;
         INSERT INTO dbo.fato_vereador_dashboard (
@@ -263,6 +267,47 @@ const seedTenantUserAndDashboard = async (keycloakId) => {
           301, '301', 'Atenção básica', 125000, @userId, @fullName, 'VEREADOR', 42, @fullName,
           'PEX', 125000
         );
+
+        DECLARE @institutionId BIGINT;
+        SELECT @institutionId = id FROM dbo.instituicao WHERE cnpj = '00000000000001';
+        IF @institutionId IS NULL
+        BEGIN
+          INSERT INTO dbo.instituicao (nome, nome_fantasia, cnpj, email)
+          VALUES ('Instituição QA', 'Instituição QA', '00000000000001', 'qa-institution@example.invalid');
+          SET @institutionId = SCOPE_IDENTITY();
+        END;
+
+        DECLARE @impedimentIds TABLE (id BIGINT PRIMARY KEY);
+        INSERT INTO @impedimentIds (id)
+        SELECT id FROM dbo.emenda_impedimento_tecnico WHERE emenda_id = 9001;
+        DELETE FROM dbo.emenda_impedimento_tecnico_evento
+        WHERE impedimento_tecnico_id IN (SELECT id FROM @impedimentIds);
+        DELETE FROM dbo.emenda_impedimento_tecnico_oficio_item
+        WHERE impedimento_tecnico_id IN (SELECT id FROM @impedimentIds);
+        DELETE FROM dbo.emenda_impedimento_tecnico
+        WHERE id IN (SELECT id FROM @impedimentIds);
+
+        IF NOT EXISTS (SELECT 1 FROM dbo.emenda WHERE id = 9001)
+        BEGIN
+          SET IDENTITY_INSERT dbo.emenda ON;
+          INSERT INTO dbo.emenda (
+            id, instituicao_id, usuario_id, tipo_emenda, status, justificativa,
+            codigo_sapl, valor_total, is_remanejamento, data_cadastro
+          ) VALUES (
+            9001, @institutionId, @userId, 'INDIVIDUAL', 'SENT_TO_MAYOR',
+            'Emenda sintética para QA de ferramentas nativas.', 'E2E-9001', 75000, 0, SYSUTCDATETIME()
+          );
+          SET IDENTITY_INSERT dbo.emenda OFF;
+        END
+        ELSE
+        BEGIN
+          UPDATE dbo.emenda
+          SET instituicao_id = @institutionId, usuario_id = @userId,
+              tipo_emenda = 'INDIVIDUAL', status = 'SENT_TO_MAYOR',
+              justificativa = 'Emenda sintética para QA de ferramentas nativas.',
+              codigo_sapl = 'E2E-9001', valor_total = 75000, is_remanejamento = 0
+          WHERE id = 9001;
+        END;
       `);
   } finally {
     await pool.close();

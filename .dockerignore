@@ -1,0 +1,8 @@
+**
+!municipalize-admin-app/
+!municipalize-admin-app/package.json
+!municipalize-admin-app/package-lock.json
+!municipalize-admin-app/nest-cli.json
+!municipalize-admin-app/tsconfig.json
+!municipalize-admin-app/src/
+!municipalize-admin-app/src/**

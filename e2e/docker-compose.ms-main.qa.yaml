@@ -1,5 +1,12 @@
 services:
+  mssql:
+    container_name: !reset null
+    ports: !override
+      - "${MS_MSSQL_PORT:-1433}:1433"
+
   keycloak:
+    ports: !override
+      - "${MS_KEYCLOAK_PORT:-8180}:8080"
     environment:
       KC_HOSTNAME: keycloak
       KC_HOSTNAME_PORT: "8080"
@@ -51,7 +58,7 @@ services:
   api:
     build:
       context: ../ms-main
-      dockerfile: Dockerfile.qa
+      dockerfile: Dockerfile
     environment:
       QUARKUS_PROFILE: dev
       QUARKUS_HTTP_HOST: 0.0.0.0

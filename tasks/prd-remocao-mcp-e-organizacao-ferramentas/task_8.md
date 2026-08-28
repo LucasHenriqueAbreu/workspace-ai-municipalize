@@ -41,17 +41,17 @@ e rollback por artefato anterior. Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 8.1 Criar runner E2E e fixture determinística para cliente, usuário,
+- [x] 8.1 Criar runner E2E e fixture determinística para cliente, usuário,
   vínculos e entidades municipais necessárias.
-- [ ] 8.2 Executar E2E-01 para leitura autenticada e verificar dados da Câmara
+- [x] 8.2 Executar E2E-01 para leitura autenticada e verificar dados da Câmara
   seeded e backend autorizado.
-- [ ] 8.3 Executar E2E-02 para mutação sem confirmação, confirmação controlada,
+- [x] 8.3 Executar E2E-02 para mutação sem confirmação, confirmação controlada,
   efeito único e estado final reconciliado.
-- [ ] 8.4 Executar E2E-03 para contexto de tenant inválido ou divergente e
+- [x] 8.4 Executar E2E-03 para contexto de tenant inválido ou divergente e
   ausência de efeito no backend.
-- [ ] 8.5 Executar E2E-04 para startup com variáveis neutras, assets, catálogo e
+- [x] 8.5 Executar E2E-04 para startup com variáveis neutras, assets, catálogo e
   ausência de rota, SDK ou configuração MCP no artefato.
-- [ ] 8.6 Executar lint, typecheck, testes, cobertura e build; validar contratos
+- [x] 8.6 Executar lint, typecheck, testes, cobertura e build; validar contratos
   Chat/SSE, smoke de homologação, observabilidade e plano de rollback.
 
 ## Detalhes de implementação
@@ -79,22 +79,22 @@ são dependências desta validação.
 
 ### Testes de unidade
 
-- [ ] Execução da suíte unitária completa com cobertura V8 mínima de 80% em
+- [x] Execução da suíte unitária completa com cobertura V8 mínima de 80% em
   statements, branches, functions e lines.
 
 ### Testes de integração
 
-- [ ] TI-01 — executa tool de leitura no grafo real de módulos.
-- [ ] TI-02 — bloqueia mutação antes de chamar o backend.
-- [ ] TI-03 — propaga cancelamento e traduz falha da tool.
-- [ ] TI-04 — rejeita identidade ou cliente divergente durante execução.
+- [x] TI-01 — executa tool de leitura no grafo real de módulos.
+- [x] TI-02 — bloqueia mutação antes de chamar o backend.
+- [x] TI-03 — propaga cancelamento e traduz falha da tool.
+- [x] TI-04 — rejeita identidade ou cliente divergente durante execução.
 
 ### Testes E2E
 
-- [ ] E2E-01 — executa tool de leitura autenticada no ambiente QA.
-- [ ] E2E-02 — executa mutação confirmada no ambiente QA.
-- [ ] E2E-03 — recusa contexto de tenant inválido no ambiente QA.
-- [ ] E2E-04 — valida artefato sem MCP no ambiente QA.
+- [x] E2E-01 — executa tool de leitura autenticada no ambiente QA.
+- [x] E2E-02 — executa mutação confirmada no ambiente QA.
+- [x] E2E-03 — recusa contexto de tenant inválido no ambiente QA.
+- [x] E2E-04 — valida artefato sem MCP no ambiente QA.
 
 ## Arquivos relevantes
 

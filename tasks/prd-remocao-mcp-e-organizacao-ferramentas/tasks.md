@@ -9,4 +9,4 @@
 - [x] 5.0 Migrar resources e prompts para o AgentGuidanceModule
 - [x] 6.0 Adaptar AgentRuntime, Chat e Mastra
 - [x] 7.0 Retirar completamente o transporte legado e atualizar a operação
-- [ ] 8.0 Executar integração QA, E2E e o gate final
+- [x] 8.0 Executar integração QA, E2E e o gate final

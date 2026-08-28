@@ -70,7 +70,7 @@ histórica deve ser apenas confirmada e removida dos projetos ativos.
 
 ### Testes de integração
 
-- [ ] Verificação do lockfile, configuração neutra, workflow, compose e
+- [x] Verificação do lockfile, configuração neutra, workflow, compose e
   conteúdo do artefato produzido pelo build.
 
 ### Testes E2E

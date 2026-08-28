@@ -67,7 +67,7 @@ endpoint nem exigir Keycloak, MongoDB, `ms-main` ou E2E de navegador.
 
 ### Testes de integração
 
-- [ ] Verificação do build e leitura dos assets registrados no artefato.
+- [x] Verificação do build e leitura dos assets registrados no artefato.
 
 ### Testes E2E
 

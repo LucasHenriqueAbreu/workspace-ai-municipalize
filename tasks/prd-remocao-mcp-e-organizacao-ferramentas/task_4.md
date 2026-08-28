@@ -80,8 +80,8 @@ contexto de transporte, URL do consumidor ou HTTP para a própria Admin API.
 
 ### Testes de integração
 
-- [ ] TI-01 — executa tool de leitura no grafo real de módulos.
-- [ ] TI-02 — bloqueia mutação antes de chamar o backend.
+- [x] TI-01 — executa tool de leitura no grafo real de módulos.
+- [x] TI-02 — bloqueia mutação antes de chamar o backend.
 
 ### Testes E2E
 

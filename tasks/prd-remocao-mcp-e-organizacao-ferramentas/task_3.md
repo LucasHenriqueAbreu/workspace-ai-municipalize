@@ -43,15 +43,15 @@ logs sem bearer ou dados pessoais. Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 3.1 Criar `ExecutionIdentityModule` e exportar somente
+- [x] 3.1 Criar `ExecutionIdentityModule` e exportar somente
   `ExecutionIdentityService`.
-- [ ] 3.2 Migrar loader, readers e tokens para configuração neutra, removendo
+- [x] 3.2 Migrar loader, readers e tokens para configuração neutra, removendo
   `MCP_*` da API interna de identidade.
-- [ ] 3.3 Adaptar validação JWKS/Keycloak e o mapeamento de claims para entrada
+- [x] 3.3 Adaptar validação JWKS/Keycloak e o mapeamento de claims para entrada
   explícita de bearer e cliente.
-- [ ] 3.4 Migrar confirmação de usuário/vínculos, contexto imutável e auditoria
+- [x] 3.4 Migrar confirmação de usuário/vínculos, contexto imutável e auditoria
   segura, sem `Request`, `AuthInfo`, `_meta`, URI ou AsyncLocalStorage.
-- [ ] 3.5 Verificar a recusa de divergências de cliente, ambiente e destino
+- [x] 3.5 Verificar a recusa de divergências de cliente, ambiente e destino
   antes de qualquer handler ou chamada municipal.
 
 ## Detalhes de implementação
@@ -71,11 +71,11 @@ do gateway.
 
 ### Testes de unidade
 
-- [ ] TU-05 — rejeita bearer e contexto inválidos.
+- [x] TU-05 — rejeita bearer e contexto inválidos.
 
 ### Testes de integração
 
-- [ ] TI-04 — rejeita identidade ou cliente divergente durante execução.
+- [x] TI-04 — rejeita identidade ou cliente divergente durante execução.
 
 ### Testes E2E
 

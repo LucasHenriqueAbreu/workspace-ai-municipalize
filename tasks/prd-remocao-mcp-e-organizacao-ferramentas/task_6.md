@@ -42,15 +42,15 @@ mínimos. Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 6.1 Atualizar `AgentRuntimeModule` para importar `ToolsModule` e
+- [x] 6.1 Atualizar `AgentRuntimeModule` para importar `ToolsModule` e
   `AgentGuidanceModule` e usar o catálogo direto.
-- [ ] 6.2 Adaptar `ChatModule`, providers, orquestração, confirmação e filtro
+- [x] 6.2 Adaptar `ChatModule`, providers, orquestração, confirmação e filtro
   para os resultados e erros internos nativos.
-- [ ] 6.3 Adaptar `MastraStudioModule`, factories, contexto e identidade para
+- [x] 6.3 Adaptar `MastraStudioModule`, factories, contexto e identidade para
   consumir tools sem `McpServer`, adapters ou tipos MCP.
-- [ ] 6.4 Remover tokens, nomes e imports MCP dos consumidores sem alterar o
+- [x] 6.4 Remover tokens, nomes e imports MCP dos consumidores sem alterar o
   contrato público do Chat.
-- [ ] 6.5 Executar e atualizar as suítes existentes de AgentRuntime, Chat e
+- [x] 6.5 Executar e atualizar as suítes existentes de AgentRuntime, Chat e
   Mastra para cobrir sucesso, confirmação, falha e cancelamento.
 
 ## Detalhes de implementação
@@ -73,15 +73,15 @@ os consumidores forem alterados.
 
 ### Testes de unidade
 
-- [ ] Regressão de confirmação e conversão de tool no AgentRuntime.
-- [ ] Regressão de confirmação nativa e execução no Mastra.
-- [ ] Regressão de envelopes de erro e mapeamento de resultados no Chat.
+- [x] Regressão de confirmação e conversão de tool no AgentRuntime.
+- [x] Regressão de confirmação nativa e execução no Mastra.
+- [x] Regressão de envelopes de erro e mapeamento de resultados no Chat.
 
 ### Testes de integração
 
-- [ ] TI-01 — executa tool de leitura no grafo real de módulos.
-- [ ] TI-02 — bloqueia mutação antes de chamar o backend.
-- [ ] Regressão dos contratos HTTP e SSE existentes do Chat, incluindo eventos
+- [x] TI-01 — executa tool de leitura no grafo real de módulos.
+- [x] TI-02 — bloqueia mutação antes de chamar o backend.
+- [x] Regressão dos contratos HTTP e SSE existentes do Chat, incluindo eventos
   de sucesso, mutação, erro, conclusão e cancelamento.
 
 ### Testes E2E

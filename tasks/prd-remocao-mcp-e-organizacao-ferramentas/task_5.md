@@ -40,12 +40,12 @@ planejado.
 
 ## Subtarefas
 
-- [ ] 5.1 Criar `AgentGuidanceModule` e o contrato `ToolGuidanceService`.
-- [ ] 5.2 Mover documentos e prompts para `agent-guidance/assets/**`, mantendo
+- [x] 5.1 Criar `AgentGuidanceModule` e o contrato `ToolGuidanceService`.
+- [x] 5.2 Mover documentos e prompts para `agent-guidance/assets/**`, mantendo
   ids, conteúdo e associações.
-- [ ] 5.3 Criar registry tipado para descoberta por id, domínio e tool.
-- [ ] 5.4 Atualizar `nest-cli.json` e validar a presença dos assets em `dist`.
-- [ ] 5.5 Comparar o catálogo nativo de guidance com o baseline da tarefa 1.
+- [x] 5.3 Criar registry tipado para descoberta por id, domínio e tool.
+- [x] 5.4 Atualizar `nest-cli.json` e validar a presença dos assets em `dist`.
+- [x] 5.5 Comparar o catálogo nativo de guidance com o baseline da tarefa 1.
 
 ## Detalhes de implementação
 
@@ -62,8 +62,8 @@ endpoint nem exigir Keycloak, MongoDB, `ms-main` ou E2E de navegador.
 
 ### Testes de unidade
 
-- [ ] TU-08 — preserva orientação interna.
-- [ ] TU-09 — carrega assets de guidance empacotados.
+- [x] TU-08 — preserva orientação interna.
+- [x] TU-09 — carrega assets de guidance empacotados.
 
 ### Testes de integração
 

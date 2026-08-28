@@ -41,15 +41,15 @@ testes isolados. Não há desvio planejado.
 
 ## Subtarefas
 
-- [ ] 2.1 Criar `BackendGatewayModule` como composition root e exportar somente
+- [x] 2.1 Criar `BackendGatewayModule` como composition root e exportar somente
   o gateway/resolver consumido pela identidade e pelas tools.
-- [ ] 2.2 Mover e adaptar a resolução por cliente/ambiente e os tipos externos
+- [x] 2.2 Mover e adaptar a resolução por cliente/ambiente e os tipos externos
   para as camadas de aplicação e infraestrutura do novo módulo.
-- [ ] 2.3 Mover a política de URL, DNS, HTTPS, redirects e bloqueios de rede
+- [x] 2.3 Mover a política de URL, DNS, HTTPS, redirects e bloqueios de rede
   privada para a fronteira do gateway.
-- [ ] 2.4 Implementar headers autorizados, timeout composto, cancelamento,
+- [x] 2.4 Implementar headers autorizados, timeout composto, cancelamento,
   classificação de falhas e redaction de logs.
-- [ ] 2.5 Verificar que nenhum consumidor acessa cliente HTTP ou persistência
+- [x] 2.5 Verificar que nenhum consumidor acessa cliente HTTP ou persistência
   interna diretamente.
 
 ## Detalhes de implementação
@@ -69,12 +69,12 @@ tipos do fornecedor.
 
 ### Testes de unidade
 
-- [ ] TU-06 — seleciona somente backend cadastrado e seguro.
-- [ ] TU-07 — compõe timeout e cancelamento.
+- [x] TU-06 — seleciona somente backend cadastrado e seguro.
+- [x] TU-07 — compõe timeout e cancelamento.
 
 ### Testes de integração
 
-- [ ] TI-03 — propaga cancelamento e traduz falha da tool.
+- [x] TI-03 — propaga cancelamento e traduz falha da tool.
 
 ### Testes E2E
 

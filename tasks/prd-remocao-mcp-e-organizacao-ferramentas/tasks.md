@@ -3,7 +3,7 @@
 ## Tarefas
 
 - [x] 1.0 Caracterização, cobertura e configuração neutra
-- [ ] 2.0 Extrair o BackendGatewayModule
+- [x] 2.0 Extrair o BackendGatewayModule
 - [ ] 3.0 Extrair o ExecutionIdentityModule
 - [ ] 4.0 Construir o catálogo nativo e migrar as tools
 - [ ] 5.0 Migrar resources e prompts para o AgentGuidanceModule

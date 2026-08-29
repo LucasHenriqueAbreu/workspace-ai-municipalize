@@ -19,6 +19,7 @@ const environment = {
   tenantSlug: process.env.E2E_TENANT_SLUG?.trim() || 'e2e-tenant',
   tenantApiBaseUrl: requiredEnvironment('E2E_TENANT_API_BASE_URL').replace(/\/$/u, ''),
   tenantBrowserApiBaseUrl: process.env.E2E_TENANT_BROWSER_API_BASE_URL?.trim() || 'http://localhost:8080',
+  tenantInternalApiBaseUrl: process.env.E2E_TENANT_INTERNAL_API_BASE_URL?.trim() || 'http://api:8080',
   keycloakBaseUrl: (process.env.E2E_KEYCLOAK_BASE_URL?.trim() || 'http://localhost:8180').replace(/\/$/u, ''),
   mssqlHost: process.env.E2E_MSSQL_HOST?.trim() || 'localhost',
   mssqlPort: Number(process.env.E2E_MSSQL_PORT || '1433'),
@@ -93,6 +94,7 @@ const seedAdminCustomer = async () => {
       {
         _id: environment.customerId,
         backendDomain: environment.tenantBrowserApiBaseUrl,
+        homologationBackendDomain: environment.tenantInternalApiBaseUrl,
         bannerUrl: null,
         createdAt: now,
         logoUrl: null,

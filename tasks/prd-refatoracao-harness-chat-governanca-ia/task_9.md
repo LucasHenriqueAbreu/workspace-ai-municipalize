@@ -42,20 +42,20 @@ preexistentes. Não há desvios planejados.
 
 ## Subtarefas
 
-- [ ] 9.1 Implementar/validar logs, métricas e redaction com executionId,
+- [x] 9.1 Implementar/validar logs, métricas e redaction com executionId,
   categoria, duração, modelo/provedor e policyVersion, sem dados sensíveis.
-- [ ] 9.2 Validar healthcheck de configuração, Mongo e composição sem chamar
+- [x] 9.2 Validar healthcheck de configuração, Mongo e composição sem chamar
   LiteLLM, tool municipal ou backend de cliente.
-- [ ] 9.3 Validar shutdown, cancelamento de streams, fechamento de Mongo,
+- [x] 9.3 Validar shutdown, cancelamento de streams, fechamento de Mongo,
   readers, listeners, timers e clients.
-- [ ] 9.4 Executar lint, typecheck, testes, cobertura V8, build e buscas
+- [x] 9.4 Executar lint, typecheck, testes, cobertura V8, build e buscas
   estáticas de contratos, ciclos, segredos e referências proibidas.
 - [ ] 9.5 Executar integração controlada com Mongo, Keycloak, LiteLLM e backend
   municipal, usando dados e credenciais fornecidos pelo ambiente, nunca pelo
   repositório.
 - [ ] 9.6 Executar E2E de streaming, retomada isolada, confirmação, disponibilidade
   e uso, registrar evidências e aprovar ou bloquear a retirada.
-- [ ] 9.7 Registrar janela de observação, sinais de abortagem, owners, backup e
+- [x] 9.7 Registrar janela de observação, sinais de abortagem, owners, backup e
   procedimento de rollback pré-retirada.
 
 ## Detalhes de implementação
@@ -86,7 +86,7 @@ na Admin API.
 
 ### Testes de integração (se aplicável)
 
-- [ ] TI-06 — bloqueia acesso cruzado
+- [x] TI-06 — bloqueia acesso cruzado
 
 ### Testes E2E (se aplicável)
 
@@ -106,3 +106,13 @@ na Admin API.
 - `municipalize-admin-app/tests/**`
 - `e2e/**`
 - `e2e/README.md`
+
+## Bloqueios de execução
+
+As subtarefas 9.5 e 9.6 permanecem pendentes. Nesta execução, o Docker Desktop
+foi iniciado, mas `e2e/.env` ainda não possui `E2E_REAL_USER_EMAIL` e
+`E2E_REAL_USER_PASSWORD`; a validação antecipada interrompeu o processo antes
+de criar containers. Além disso, a suíte E2E central ainda não possui os
+cenários Chat E2E-01 a E2E-04. A suíte disponível executou 19 cenários do
+dashboard, com 12 aprovados e 7 falhas fora do escopo do Chat. Não há evidência
+suficiente para aprovar a integração controlada ou a retirada do legado.

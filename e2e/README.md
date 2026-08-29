@@ -41,15 +41,15 @@ em uma máquina Linux que exija bibliotecas do sistema, use
    Admin API. Depois seleciona o card do município e somente então acessa a
    rota pública do tenant. A conta só é usada depois dessa seleção.
 4. Os testes usam as portas `51**` para o frontend. Para subir todo o ambiente
-   de QA isolado, com Admin API, Mongo administrativo, `ms-main`, SQL Server e
-   Keycloak em portas dinâmicas:
+   de QA isolado, com frontend, Admin API, Mongo administrativo, `ms-main`,
+   SQL Server, Keycloak, LiteLLM e PostgreSQL do LiteLLM em portas dinâmicas:
 
    ```bash
    npm run docker:ms-main:up
    # o comando também executa o bootstrap idempotente do município e do usuário
    # carregue as portas impressas para executar a suíte na mesma sessão
    set -a; source .env; source .runtime/municipalize-qa-<pid>.env; set +a
-   E2E_START_APP=true E2E_USE_API_FIXTURES=false E2E_LOGIN_WITH_API=true npm test
+   E2E_USE_API_FIXTURES=false E2E_LOGIN_WITH_API=true npm test
    npm run docker:ms-main:down -- --project municipalize-qa-<pid>
    ```
 
@@ -57,7 +57,19 @@ em uma máquina Linux que exija bibliotecas do sistema, use
    escolhe portas livres nas faixas `30**` (`ms-main`), `32**` (Admin API),
    `27***` (Mongo administrativo), `14**` (SQL Server), `81**` (Keycloak) e
    `51**` (frontend). O arquivo de portas fica em `.runtime/` e não é
-   versionado.
+   versionado. O frontend é servido pelo container Nginx; o Playwright não
+   inicia outro servidor local.
+
+   O script carrega `E2E_LITELLM_ENV_FILE`. Se essa variável não for alterada,
+   ele usa `../municipalize-admin-app/.env.litellm`, que deve conter as chaves
+   locais do LiteLLM (`LITELLM_MASTER_KEY` e a chave do provedor escolhido).
+   Nenhuma chave deve ser copiada para `e2e/.env` ou versionada.
+
+   Em uma máquina local com capacidade limitada, `E2E_LITELLM_BASE_URL` pode
+   apontar para uma instância LiteLLM local já saudável (por exemplo,
+   `http://host.docker.internal:4000`). Esse é um fallback explícito: CI e QA
+   isolado devem deixar a variável vazia para iniciar o LiteLLM do próprio
+   projeto Docker.
 
    O bootstrap é idempotente e prepara:
 
@@ -99,11 +111,12 @@ preencher a sessão no `.env` e desativar as fixtures:
 E2E_START_APP=false E2E_USE_API_FIXTURES=false E2E_LOGIN_WITH_API=true npm test
 ```
 
-O login técnico do E2E busca a chave pública do `ms-main`, cifra a senha em
-memória com RSA-OAEP e grava somente os tokens temporários no contexto isolado
-do Playwright. No fluxo Docker, o `qa:bootstrap` cria a conta no Keycloak e o
-vínculo correspondente na base do tenant antes da suíte iniciar. O seed não
-imprime senha, token, cookie ou identificador sensível.
+Para os cenários integrados com Chat, o `qa:bootstrap` cria a conta no Keycloak
+e o vínculo correspondente na base do tenant antes da suíte iniciar. O
+Playwright obtém o token pelo grant de senha do cliente de QA, sem passar pelo
+endpoint de login do `ms-main`; portanto o reCAPTCHA da tela não é automatizado
+nem precisa de um token real. O seed não imprime senha, token, cookie ou
+identificador sensível.
 
 Quando o backend estiver em porta dinâmica, defina
 `E2E_TENANT_API_PROXY_URL=http://localhost:<E2E_BACKEND_PORT>`. O frontend pode

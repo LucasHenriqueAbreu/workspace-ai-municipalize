@@ -21,6 +21,8 @@ services:
       - "${E2E_ADMIN_MONGO_PORT:-27017}:27017"
     volumes:
       - municipalize-qa-admin-mongo:/data/db
+    networks:
+      - ms-project-main
 
   admin-api:
     build:
@@ -42,10 +44,10 @@ services:
       GENERAL_ADMINISTRATOR_EMAIL_ADDRESS: ${E2E_REAL_USER_EMAIL:-qa-admin@example.invalid}
       GENERAL_ADMINISTRATOR_PASSWORD: ${E2E_REAL_USER_PASSWORD:-change-me-in-local-env}
       CHAT_SYSTEM_PROMPT_FILE: /app/src/modules/chat/prompts/gracy-system-prompt.pt-BR.md
-      LITELLM_BASE_URL: http://litellm:4000
-      LITELLM_API_KEY: e2e-not-configured
-      LITELLM_ADMIN_BASE_URL: http://litellm:4000
-      LITELLM_MASTER_KEY: e2e-not-configured
+      LITELLM_BASE_URL: ${E2E_LITELLM_BASE_URL:-http://litellm:4000}
+      LITELLM_API_KEY: ${LITELLM_MASTER_KEY:?Defina LITELLM_MASTER_KEY}
+      LITELLM_ADMIN_BASE_URL: ${E2E_LITELLM_BASE_URL:-http://litellm:4000}
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?Defina LITELLM_MASTER_KEY}
       EXECUTION_IDENTITY_KEYCLOAK_ISSUER_URL: http://keycloak:8080/realms/quarkus-realm
       EXECUTION_IDENTITY_KEYCLOAK_JWKS_URL: http://keycloak:8080/realms/quarkus-realm/protocol/openid-connect/certs
       EXECUTION_IDENTITY_KEYCLOAK_AUDIENCE: backend-service
@@ -53,7 +55,53 @@ services:
     ports:
       - "${E2E_ADMIN_API_PORT:-3200}:3000"
     depends_on:
-      - admin-mongo
+      admin-mongo:
+        condition: service_started
+      litellm:
+        condition: service_healthy
+    networks:
+      - ms-project-main
+
+  litellm-postgres:
+    image: ${LITELLM_POSTGRES_IMAGE:-postgres:16-alpine@sha256:cf78e76683b9ca8c5733cbbdce6c9262b45b6767934dd0a95e671f9a0fc20685}
+    environment:
+      POSTGRES_DB: ${LITELLM_POSTGRES_DB:-litellm}
+      POSTGRES_PASSWORD: ${LITELLM_POSTGRES_PASSWORD:?Defina LITELLM_POSTGRES_PASSWORD}
+      POSTGRES_USER: ${LITELLM_POSTGRES_USER:-litellm}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - municipalize-qa-litellm-postgres:/var/lib/postgresql/data
+    networks:
+      - ms-project-main
+
+  litellm:
+    image: ${LITELLM_IMAGE:-docker.litellm.ai/berriai/litellm@sha256:20b5044b619055374061a6d5b7b08754cad75aeabbf82ddf4f69cc0cf80ddaf4}
+    init: true
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    env_file:
+      - ${E2E_LITELLM_ENV_FILE:-../municipalize-admin-app/.env.litellm}
+    environment:
+      DATABASE_URL: postgresql://${LITELLM_POSTGRES_USER:-litellm}:${LITELLM_POSTGRES_PASSWORD}@litellm-postgres:5432/${LITELLM_POSTGRES_DB:-litellm}
+      STORE_MODEL_IN_DB: "True"
+    depends_on:
+      litellm-postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python3 -c "import urllib.request; urllib.request.urlopen('http://localhost:4000/health/liveliness')"
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 5m
+    volumes:
+      - ../municipalize-admin-app/litellm.config.yaml:/app/config.yaml:ro
+    networks:
+      - ms-project-main
 
   api:
     build:
@@ -64,8 +112,11 @@ services:
       QUARKUS_HTTP_HOST: 0.0.0.0
       QUARKUS_HTTP_PORT: 8080
       QUARKUS_DATASOURCE_DEFAULT_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main;encrypt=true;trustServerCertificate=true
+      QUARKUS_DATASOURCE_DEFAULT_JDBC_ACQUISITION_TIMEOUT: 90S
       QUARKUS_DATASOURCE_CLIENTE1_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main-cliente1;encrypt=true;trustServerCertificate=true
+      QUARKUS_DATASOURCE_CLIENTE1_JDBC_ACQUISITION_TIMEOUT: 90S
       QUARKUS_DATASOURCE_CLIENTE2_JDBC_URL: jdbc:sqlserver://mssql:1433;database=db-main-cliente2;encrypt=true;trustServerCertificate=true
+      QUARKUS_DATASOURCE_CLIENTE2_JDBC_ACQUISITION_TIMEOUT: 90S
       QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak:8080/realms/quarkus-realm
       QUARKUS_OIDC_AUTHENTICATION_USER_INFO_REQUIRED: "false"
       KEYCLOAK_BASE_URL: http://keycloak:8080
@@ -83,5 +134,21 @@ services:
     networks:
       - ms-project-main
 
+  frontend:
+    image: nginx:1.27-alpine
+    ports:
+      - "${E2E_FRONTEND_PORT:-5100}:80"
+    volumes:
+      - ../municipalize-app/dist/municipalize-app/browser:/usr/share/nginx/html:ro
+      - ../e2e/nginx.municipalize-app.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      admin-api:
+        condition: service_started
+      api:
+        condition: service_started
+    networks:
+      - ms-project-main
+
 volumes:
   municipalize-qa-admin-mongo:
+  municipalize-qa-litellm-postgres:
